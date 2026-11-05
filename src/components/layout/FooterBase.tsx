@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site.config';
+import DigitalArchitectLogo from '@/components/DigitalArchitectLogo';
 
 export default function FooterBase() {
   return (
@@ -138,15 +139,15 @@ export default function FooterBase() {
           <div>
             © {new Date().getFullYear()} Simonia Development Learning Centre (NPO 301-712). All rights reserved.
           </div>
-          <div>
-            Made by{' '}
+          <div className="flex items-center gap-2">
+            <span>Made by</span>
             <a
               href="https://www.digitalarchitectagency.co.za"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-300 hover:text-[#84CEE2] font-medium underline underline-offset-4"
+              className="inline-flex items-center gap-1.5 text-slate-300 hover:text-[#84CEE2] font-medium transition-colors"
             >
-              Digital Architect
+              <DigitalArchitectLogo size="sm" showText={true} />
             </a>
           </div>
         </div>

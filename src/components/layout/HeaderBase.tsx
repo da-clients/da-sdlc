@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/config/site.config';
@@ -9,6 +9,33 @@ import ThemeToggle from '@/components/ThemeToggle';
 export default function HeaderBase() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  // Scroll effect: Disappears when scrolling down, reappears when scrolling up or at top
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Always show when near the top of the page
+      if (currentScrollY < 50) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current && currentScrollY - lastScrollY.current > 6) {
+        // Scrolling DOWN -> hide header (unless drawer menu is actively open)
+        if (!menuOpen) {
+          setIsVisible(false);
+        }
+      } else if (currentScrollY < lastScrollY.current && lastScrollY.current - currentScrollY > 6) {
+        // Scrolling UP -> reveal header
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [menuOpen]);
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
@@ -19,18 +46,23 @@ export default function HeaderBase() {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'Our Mission' },
     { href: '/leadership', label: 'Founder & Board' },
+    { href: '/programs', label: 'Our Programmes' },
     { href: '/contact', label: 'Contact Us' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md transition-colors">
-      {/* Top Verification & One-Click Contact Micro-Bar */}
-      <div className="bg-slate-900 dark:bg-slate-900 text-white text-xs py-2 px-4">
+    <header
+      className={`sticky top-0 z-50 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md transition-transform duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full'
+      }`}
+    >
+      {/* Top Verification & One-Click Contact Micro-Bar (Theme responsive: Soft sky blue in Light, Slate 950 in Dark) */}
+      <div className="bg-[#E8F6FA] dark:bg-slate-950 border-b border-[#84CEE2]/40 dark:border-slate-800/80 text-slate-800 dark:text-slate-200 text-xs py-2 px-4 transition-colors">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#84CEE2]/20 text-[#84CEE2] border border-[#84CEE2]/40">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-white dark:bg-[#84CEE2]/20 text-slate-900 dark:text-[#84CEE2] border border-[#84CEE2]/60 dark:border-[#84CEE2]/40 shadow-xs">
               <svg
-                className="w-3.5 h-3.5 shrink-0"
+                className="w-3.5 h-3.5 text-[#0284c7] dark:text-[#84CEE2] shrink-0"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2.5}
@@ -43,14 +75,14 @@ export default function HeaderBase() {
             </span>
           </div>
 
-          <div className="flex items-center gap-4 text-slate-200">
+          <div className="flex items-center gap-4 text-slate-700 dark:text-slate-200 font-medium">
             <a
               href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center gap-1.5 hover:text-[#84CEE2] transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 hover:text-slate-950 dark:hover:text-[#84CEE2] transition-colors"
               title="Send us an email"
             >
               <svg
-                className="w-3.5 h-3.5 text-[#84CEE2] shrink-0"
+                className="w-3.5 h-3.5 text-[#0284c7] dark:text-[#84CEE2] shrink-0"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}
@@ -69,11 +101,11 @@ export default function HeaderBase() {
               href={`https://wa.me/${siteConfig.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 hover:text-[#90D1BB] transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 hover:text-slate-950 dark:hover:text-[#90D1BB] transition-colors"
               title="Message or call us on WhatsApp"
             >
               <svg
-                className="w-3.5 h-3.5 text-[#90D1BB] shrink-0"
+                className="w-3.5 h-3.5 text-[#0d9488] dark:text-[#90D1BB] shrink-0"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}
@@ -137,7 +169,7 @@ export default function HeaderBase() {
         </div>
       </div>
 
-      {/* Unified Navigation Drawer (Clean 4 Options + Blue Contact & Volunteer Button) */}
+      {/* Unified Navigation Drawer */}
       {menuOpen && (
         <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 pt-4 pb-6 shadow-xl">
           <nav className="max-w-md mx-auto space-y-2">
