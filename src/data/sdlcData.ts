@@ -8,6 +8,7 @@ export interface PillarItem {
   borderSoft: string;
   statHighlight: string;
   statSource: string;
+  shortDescription: string;
   summary: string;
   paragraphs: string[];
   programmes: string[];
@@ -25,6 +26,8 @@ export const MEET_PILLARS: PillarItem[] = [
     borderSoft: "rgba(132, 206, 226, 0.45)",
     statHighlight: "1 woman killed every 3 hours in SA • R28.4B annual economic cost of GBV",
     statSource: "KPMG & South African National GBV Research",
+    shortDescription:
+      "South Africa has one of the highest rates of gender-based violence in the world. We support survivors and strengthen wellbeing, so recovery isn't a barrier to opportunity.",
     summary:
       "South Africa faces one of the highest rates of gender-based violence and childhood trauma globally. We treat emotional wellbeing and nervous-system regulation as the starting point for every learner and woman we serve.",
     paragraphs: [
@@ -51,6 +54,8 @@ export const MEET_PILLARS: PillarItem[] = [
     borderSoft: "rgba(218, 134, 136, 0.45)",
     statHighlight: "Addressing SA's high youth dropout & teenage pregnancy barriers through practical learning",
     statSource: "SDLC Educational Outreach & Literacy Mandate",
+    shortDescription:
+      "With South Africa's teenage pregnancy rate among the highest globally, education and skills training give young mothers and learners a real path forward.",
     summary:
       "With South Africa's teenage pregnancy and youth dropout rates among the highest globally, accessible life skills, literacy drives, and educational mentorship give young mothers and school learners a real path forward.",
     paragraphs: [
@@ -76,6 +81,8 @@ export const MEET_PILLARS: PillarItem[] = [
     borderSoft: "rgba(144, 209, 187, 0.45)",
     statHighlight: "Only 6.2% of South African women start their own businesses — we work to multiply that number",
     statSource: "South African Women's Enterprise & Economic Inclusion Data",
+    shortDescription:
+      "Only 6.2% of South African women start their own businesses. We back women-led ventures to build jobs, income, and independence.",
     summary:
       "Only 6.2% of South African women currently start their own businesses. We equip women and youth with practical business tools, mentorship, and market readiness to create self-sustaining income and independence.",
     paragraphs: [
@@ -95,14 +102,16 @@ export const MEET_PILLARS: PillarItem[] = [
     id: "technology",
     letter: "T",
     title: "Technology",
-    subtitle: "Closing the Gender Digital Divide & Building AI Readiness",
+    subtitle: "Closing the Digital Divide & Building AI Readiness",
     color: "#F2CB6F",
     bgSoft: "rgba(242, 203, 111, 0.16)",
     borderSoft: "rgba(242, 203, 111, 0.5)",
-    statHighlight: "Only 47% of SA women have internet access vs. 58% of men — we close the digital gap",
+    statHighlight: "Less than half of women in South Africa have consistent internet access — we work to close that gap",
     statSource: "South African Digital Inclusion Benchmark",
+    shortDescription:
+      "Less than half of women in South Africa have consistent internet access. We work to close that gap so digital tools and technology are in everyone's hands.",
     summary:
-      "With only 47% of women in South Africa having consistent internet access compared to 58% of men, our Technology pillar delivers foundational digital literacy, online safety, and responsible AI awareness.",
+      "Less than half of women in South Africa have consistent internet access. Our Technology pillar closes that gap by delivering foundational digital literacy, online safety, and responsible AI awareness so digital tools are in everyone's hands.",
     paragraphs: [
       "In a rapidly evolving digital economy, being left offline means being locked out of modern employment, banking, and education. SDLC ensures women and youth are not left behind by the technological shift.",
       "Our curriculum spans practical digital literacy workbooks, online safety and scam prevention, foundational computing skills, and responsible Artificial Intelligence (AI) awareness — turning technology into an accessible tool for daily empowerment.",
@@ -137,14 +146,14 @@ export const CSI_PARTNERSHIP_TRACK = {
 };
 
 export const COURAGE_CREW_CHARACTERS = [
-  { name: "Yaya the Butterfly", trait: "Calm breathing & confidence", emoji: "🦋" },
-  { name: "Monie the Elephant", trait: "Emotional awareness & grounding", emoji: "🐘" },
-  { name: "Pumpkin the Penguin", trait: "Compassion & connection", emoji: "🐧" },
-  { name: "Nay the Panda", trait: "Courage & authenticity", emoji: "🐼" },
-  { name: "Kiwi the Koala", trait: "Kindness & gentle communication", emoji: "🐨" },
-  { name: "Egypt the Lion", trait: "Bravery & resilience", emoji: "🦁" },
-  { name: "Milo the Turtle", trait: "Asking for help & self-protection", emoji: "🐢" },
-  { name: "Angel the Bee", trait: "Positive actions & community care", emoji: "🐝" },
+  { name: "Yaya the Butterfly", trait: "Calm breathing & confidence" },
+  { name: "Monie the Elephant", trait: "Emotional awareness & grounding" },
+  { name: "Pumpkin the Penguin", trait: "Compassion & connection" },
+  { name: "Nay the Panda", trait: "Courage & authenticity" },
+  { name: "Kiwi the Koala", trait: "Kindness & gentle communication" },
+  { name: "Egypt the Lion", trait: "Bravery & resilience" },
+  { name: "Milo the Turtle", trait: "Asking for help & self-protection" },
+  { name: "Angel the Bee", trait: "Positive actions & community care" },
 ];
 
 export const MENTAL_HEALTH_HELPLINES = [

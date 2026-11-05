@@ -56,7 +56,7 @@ export default function DonatePartnerPage() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900/50 border-b border-slate-200/80 dark:border-slate-800">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold bg-[#90D1BB]/25 text-slate-800 dark:text-[#90D1BB]">
-            Partner With Registered NPO 301-712
+            Support Registered NPO 301-712
           </div>
           <h1 className="font-serif text-4xl sm:text-5xl text-slate-900 dark:text-white">
             Make a Lasting Difference With <span className="text-[#90D1BB]">SDLC</span>
@@ -70,7 +70,7 @@ export default function DonatePartnerPage() {
       {/* STEP 1: Choose Your Personal Impact Focus + Automated EFT Card */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          {/* Left Column: Named Impact Pathways (Makes Giving Personal Without Manual Admin!) */}
+          {/* Left Column: Named Impact Pathways */}
           <div className="lg:col-span-7 space-y-6">
             <div>
               <span className="text-xs font-semibold uppercase tracking-widest text-[#84CEE2]">
@@ -119,13 +119,13 @@ export default function DonatePartnerPage() {
               })}
             </div>
 
-            {/* Warm Personal Connection Box — Zero Extra Work for Simonia, Maximum Warmth for Donor */}
+            {/* Warm Personal Connection Box */}
             <div className="rounded-3xl p-6 bg-gradient-to-r from-[#84CEE2]/15 via-white to-[#90D1BB]/15 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border border-[#84CEE2]/40 space-y-3">
               <h3 className="font-serif text-xl text-slate-900 dark:text-white">
-                💬 Want a Personal Connection or Official NPO Receipt?
+                Want a Personal Connection or Official NPO Receipt?
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                You can complete your EFT automatically at any time using the official Standard Bank details on the right. If you would like to say hello to Simonia, request an official NPO acknowledgement letter, or discuss a Corporate CSI partnership, tap below to send a pre-filled WhatsApp or email:
+                You can complete your EFT automatically at any time using the official Standard Bank details on the right. If you would like to say hello to Simonia, request an official NPO acknowledgement letter, or discuss a Corporate CSI partnership, tap below:
               </p>
               <div className="flex flex-wrap gap-3 pt-1">
                 <a
@@ -134,13 +134,13 @@ export default function DonatePartnerPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-slate-900 dark:bg-[#90D1BB] text-white dark:text-slate-950 hover:opacity-90 transition-all"
                 >
-                  <span>💬 Message Simonia on WhatsApp</span>
+                  <span>Message Simonia on WhatsApp</span>
                 </a>
                 <a
                   href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`SDLC Support / CSI Partnership (${selectedRef})`)}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700"
                 >
-                  <span>✉️ Email {siteConfig.email}</span>
+                  <span>Email {siteConfig.email}</span>
                 </a>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function DonatePartnerPage() {
                         onClick={() => copyText(row.label, row.value)}
                         className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-[#84CEE2] transition-colors shrink-0"
                       >
-                        {copiedField === row.label ? '✓ Copied!' : 'Copy'}
+                        {copiedField === row.label ? 'Copied' : 'Copy'}
                       </button>
                     )}
                   </div>
@@ -233,7 +233,7 @@ export default function DonatePartnerPage() {
                 rel="noopener noreferrer"
                 className="px-6 py-3 rounded-full text-xs sm:text-sm font-semibold bg-[#DA8688] text-slate-950 hover:opacity-90 transition-all shadow-xs"
               >
-                Sponsor Pads via Palesa Pads SnapScan ↗
+                Sponsor Pads via Palesa Pads SnapScan →
               </a>
               <Link
                 href="/gallery"

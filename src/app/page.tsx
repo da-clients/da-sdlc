@@ -2,406 +2,263 @@ import React from 'react';
 import Link from 'next/link';
 import SponsorTrustBar from '@/components/SponsorTrustBar';
 import NextStepBanner from '@/components/NextStepBanner';
-import { MEET_PILLARS, IMPACT_TIMELINE_EVENTS, CSI_PARTNERSHIP_TRACK } from '@/data/sdlcData';
+import { MEET_PILLARS, IMPACT_TIMELINE_EVENTS } from '@/data/sdlcData';
 
 export default function HomePage() {
   return (
     <div>
-      {/* 1. HERO SECTION — Curiosity & Mission First, Not Premature Hard Ask */}
-      <section className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAF9F6] to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#84CEE2]/20 text-slate-800 dark:text-[#84CEE2] border border-[#84CEE2]/40">
-              <span>Simonia Development Learning Centre • NPO 301-712</span>
-            </div>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-tight text-slate-900 dark:text-white">
-              Empowering Women &amp; Children Through{' '}
-              <span className="text-[#DA8688]">M.E.E.T.</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
-              We build lasting resilience and socio-economic independence across South Africa by uniting four foundational pillars:{' '}
-              <strong className="text-slate-900 dark:text-white">Mental Health</strong>,{' '}
-              <strong className="text-slate-900 dark:text-white">Education</strong>,{' '}
-              <strong className="text-slate-900 dark:text-white">Entrepreneurship</strong>, and{' '}
-              <strong className="text-slate-900 dark:text-white">Technology</strong>.
-            </p>
-
-            {/* Colour-Coded Sticker Pills */}
-            <div className="flex flex-wrap gap-2 pt-1">
-              <Link
-                href="/pillars#mental-health"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#84CEE2]/20 text-slate-800 dark:text-white border border-[#84CEE2]"
+      {/* 1. HERO SECTION — Clean, Focused & Free of Redundant Clutter */}
+      <section className="relative overflow-hidden py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-[#FAF9F6] to-white dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border-b border-slate-200/70 dark:border-slate-800/80">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-tight text-slate-900 dark:text-white">
+            Empowering Women &amp; Children Through{' '}
+            <span className="text-[#DA8688]">M.E.E.T.</span>
+          </h1>
+          <h2 className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
+            We empower through{' '}
+            <strong className="font-semibold text-slate-900 dark:text-white">Mental health support</strong>,{' '}
+            <strong className="font-semibold text-slate-900 dark:text-white">Education</strong>,{' '}
+            <strong className="font-semibold text-slate-900 dark:text-white">Entrepreneurship</strong>, and{' '}
+            <strong className="font-semibold text-slate-900 dark:text-white">Technology</strong> (M.E.E.T.).
+          </h2>
+          <div className="pt-2">
+            <a
+              href="#meet-section"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm sm:text-base font-semibold bg-slate-900 dark:bg-[#84CEE2] text-white dark:text-slate-950 hover:opacity-90 transition-all shadow-md"
+            >
+              <span>Explore How We Work</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#84CEE2]" />
-                M — Mental Health
-              </Link>
-              <Link
-                href="/pillars#education"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#DA8688]/20 text-slate-800 dark:text-white border border-[#DA8688]"
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#DA8688]" />
-                E — Education
-              </Link>
-              <Link
-                href="/pillars#entrepreneurship"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#90D1BB]/25 text-slate-800 dark:text-white border border-[#90D1BB]"
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#90D1BB]" />
-                E — Entrepreneurship
-              </Link>
-              <Link
-                href="/pillars#technology"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-[#F2CB6F]/25 text-slate-800 dark:text-white border border-[#F2CB6F]"
-              >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#F2CB6F]" />
-                T — Technology
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4 pt-3">
-              <a
-                href="#meet-pillars"
-                className="px-7 py-3.5 rounded-full text-sm font-semibold bg-slate-900 dark:bg-[#84CEE2] text-white dark:text-slate-950 hover:opacity-90 transition-all shadow-md"
-              >
-                Explore How We Work ↓
-              </a>
-              <Link
-                href="/gallery"
-                className="px-6 py-3.5 rounded-full text-sm font-semibold bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 hover:border-slate-400 transition-all"
-              >
-                See 2026 Impact Proof
-              </Link>
-            </div>
-          </div>
-
-          {/* Right Column: Official SDLC Visual Card */}
-          <div className="lg:col-span-5">
-            <div className="relative rounded-3xl bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-xl border border-slate-200/80 dark:border-slate-800 text-center space-y-5">
-              <img
-                src="/assets/sdlc-logo.jpg"
-                alt="SDLC — Simonia Development Learning Centre NPO 301-712"
-                className="w-56 h-56 mx-auto object-contain rounded-2xl"
-              />
-              <div className="space-y-2">
-                <div className="text-xs font-semibold uppercase tracking-widest text-[#DA8688]">
-                  Together We Create Stronger Communities
-                </div>
-                <p className="text-sm text-slate-600 dark:text-slate-300">
-                  Access to trauma-informed wellness, practical education, business mentorship, and digital literacy breaks cycles of inequality for generations.
-                </p>
-              </div>
-              <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-100 dark:border-slate-800 text-center">
-                <div className="p-2">
-                  <div className="font-serif text-xl font-bold text-slate-900 dark:text-white">4</div>
-                  <div className="text-[11px] text-slate-500">Core M.E.E.T. Pillars</div>
-                </div>
-                <div className="p-2 border-x border-slate-100 dark:border-slate-800">
-                  <div className="font-serif text-xl font-bold text-slate-900 dark:text-white">301-712</div>
-                  <div className="text-[11px] text-slate-500">Verified SA NPO</div>
-                </div>
-                <div className="p-2">
-                  <div className="font-serif text-xl font-bold text-slate-900 dark:text-white">KZN+</div>
-                  <div className="text-[11px] text-slate-500">Schools & Communities</div>
-                </div>
-              </div>
-            </div>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* 2. INSTITUTIONAL & SPONSOR TRUST BAR — Immediate Credibility */}
-      <SponsorTrustBar />
-
-      {/* 3. CONCISE MISSION SECTION — Replaces AI Wall-of-Text With Clear, Human Purpose */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="max-w-3xl mx-auto text-center space-y-4">
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#84CEE2] bg-slate-900 px-3.5 py-1 rounded-full">
-            Why Our Mission Works
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
-            Practical Impact Built on Collaboration &amp; Accountability
-          </h2>
-          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
-            Meaningful social change happens when immediate emotional support is paired with long-term economic and digital skills. We partner with schools, municipalities, and corporate CSI leaders to deliver measurable community outcomes.
+      {/* 2. BRIDGE DESCRIPTION + VERTICAL M | E | E | T CONNECTED SPINE */}
+      <section id="meet-section" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto scroll-mt-24">
+        {/* Two-Paragraph Bridge Description */}
+        <div className="space-y-4 text-center sm:text-left mb-12 bg-white dark:bg-slate-900/70 p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed">
+            Our work focuses on empowering women and children through education, skills development, technology, entrepreneurship, and psychosocial support — addressing both immediate needs and sustainable outcomes.
+          </p>
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+            At Simonia Development Learning Centre (SDLC), we build our work on four pillars for measurable impact in our communities.{' '}
+            <strong className="font-semibold text-slate-900 dark:text-white">M.E.E.T.</strong> is how we organise everything we do — Mental Health, Education, Entrepreneurship, and Technology, working together.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-[#84CEE2]/20 text-slate-900 dark:text-[#84CEE2] flex items-center justify-center font-bold mb-4">
-              01
-            </div>
-            <h3 className="font-serif text-xl text-slate-900 dark:text-white mb-2">
-              Wellbeing First
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Unaddressed trauma blocks learning and growth. We start with nervous-system regulation, breathwork, and safe school environments.
-            </p>
-          </div>
+        {/* Vertical M | E | E | T Spine Layout */}
+        <div className="space-y-0">
+          {MEET_PILLARS.map((pillar, index) => {
+            const isLast = index === MEET_PILLARS.length - 1;
+            return (
+              <div key={pillar.id} className="flex items-stretch gap-4 sm:gap-7">
+                {/* Left Column: Connected M | E | E | T Letter & Vertical Line */}
+                <div className="flex flex-col items-center shrink-0 w-14 sm:w-16">
+                  <Link
+                    href={`/pillars#${pillar.id}`}
+                    className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center font-serif text-2xl sm:text-3xl font-bold text-slate-950 shadow-sm shrink-0 hover:scale-105 transition-transform"
+                    style={{ backgroundColor: pillar.color }}
+                    aria-label={`${pillar.letter} — ${pillar.title}`}
+                  >
+                    {pillar.letter}
+                  </Link>
+                  {!isLast && (
+                    <div
+                      className="w-1 flex-1 my-2 rounded-full bg-slate-300 dark:bg-slate-700 min-h-[2.5rem]"
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
 
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-[#90D1BB]/25 text-slate-900 dark:text-[#90D1BB] flex items-center justify-center font-bold mb-4">
-              02
-            </div>
-            <h3 className="font-serif text-xl text-slate-900 dark:text-white mb-2">
-              Skills That Pay Bills
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              From youth literacy to women-led entrepreneurship and responsible AI literacy, every programme teaches practical capabilities for the modern economy.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm">
-            <div className="w-10 h-10 rounded-xl bg-[#A4A5C6]/25 text-slate-900 dark:text-[#A4A5C6] flex items-center justify-center font-bold mb-4">
-              03
-            </div>
-            <h3 className="font-serif text-xl text-slate-900 dark:text-white mb-2">
-              Transparent CSI Reporting
-            </h3>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              We co-create initiatives with municipalities and corporate sponsors, providing clear documentation, field photography, and verifiable community impact.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-8 text-center">
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-[#84CEE2] hover:underline"
-          >
-            <span>Read Our Full Mission, Vision &amp; Governance</span>
-            <span>→</span>
-          </Link>
-          <span className="mx-3 text-slate-300 dark:text-slate-700">|</span>
-          <Link
-            href="/leadership"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-[#84CEE2] hover:underline"
-          >
-            <span>Meet Our Founder &amp; Board of Directors</span>
-            <span>→</span>
-          </Link>
+                {/* Right Column: Pillar Box (Title + Link on Top, Concise Description Below) */}
+                <div className={`flex-1 ${isLast ? 'pb-0' : 'pb-6 sm:pb-8'}`}>
+                  <div
+                    className="rounded-3xl p-6 sm:p-7 bg-white dark:bg-slate-900 border-2 shadow-xs hover:shadow-md transition-all"
+                    style={{ borderColor: pillar.borderSoft }}
+                  >
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                      <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 dark:text-white">
+                        {pillar.title}
+                      </h3>
+                      <Link
+                        href={`/pillars#${pillar.id}`}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold text-slate-950 hover:opacity-90 transition-opacity"
+                        style={{ backgroundColor: pillar.color }}
+                      >
+                        <span>Explore {pillar.title}</span>
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    </div>
+                    <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                      {pillar.shortDescription}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
-      {/* 4. THE M.E.E.T. PILLARS GRID — Every Link Works & Routes to Its Exact Anchor */}
-      <section id="meet-pillars" className="py-16 sm:py-20 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <span className="text-xs font-semibold uppercase tracking-widest text-[#DA8688]">
-                The Foundation of Every Programme
+      {/* 3. SIMPLIFIED IMPACT / OUTREACH TEASER */}
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-slate-900/50 border-t border-slate-200/80 dark:border-slate-800">
+        <div className="max-w-6xl mx-auto space-y-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="space-y-2 max-w-2xl">
+              <span className="text-xs font-semibold uppercase tracking-widest text-[#90D1BB]">
+                Community Proof
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1">
-                Our 4 M.E.E.T. Pillars (Plus Corporate CSI)
+              <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
+                Want to See Our Impact in Action?
               </h2>
-            </div>
-            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md">
-              Each pillar is colour-coded according to our official SDLC framework. Click any pillar to explore its full programmes, South African data sources, and school initiatives.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {MEET_PILLARS.map((pillar) => (
-              <Link
-                key={pillar.id}
-                href={`/pillars#${pillar.id}`}
-                className="group rounded-3xl p-7 bg-[#FAF9F6] dark:bg-slate-900 border-2 transition-all hover:-translate-y-1 hover:shadow-lg flex flex-col justify-between"
-                style={{ borderColor: pillar.borderSoft }}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-4 mb-5">
-                    <div className="flex items-center gap-3.5">
-                      <span
-                        className="w-12 h-12 rounded-2xl flex items-center justify-center font-serif text-2xl font-bold text-slate-950 shadow-sm"
-                        style={{ backgroundColor: pillar.color }}
-                      >
-                        {pillar.letter}
-                      </span>
-                      <div>
-                        <h3 className="font-serif text-2xl text-slate-900 dark:text-white group-hover:underline">
-                          {pillar.title}
-                        </h3>
-                        <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
-                          {pillar.subtitle}
-                        </p>
-                      </div>
-                    </div>
-                    <span
-                      className="text-xs font-semibold px-3 py-1 rounded-full text-slate-900"
-                      style={{ backgroundColor: pillar.color }}
-                    >
-                      Explore Pillar →
-                    </span>
-                  </div>
-
-                  {/* Verified Source Stat */}
-                  <div
-                    className="p-3 rounded-xl text-xs font-semibold text-slate-800 dark:text-slate-200 mb-4"
-                    style={{ backgroundColor: pillar.bgSoft }}
-                  >
-                    📊 {pillar.statHighlight}
-                  </div>
-
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-                    {pillar.summary}
-                  </p>
-
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-700 dark:text-slate-300">
-                    {pillar.programmes.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span className="mt-1 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: pillar.color }} />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          {/* 5th Track: Corporate & CSI / Social Impact Partnerships */}
-          <div
-            className="mt-6 rounded-3xl p-7 bg-[#FAF9F6] dark:bg-slate-900 border-2 flex flex-col lg:flex-row lg:items-center justify-between gap-6"
-            style={{ borderColor: CSI_PARTNERSHIP_TRACK.borderSoft }}
-          >
-            <div className="space-y-2 max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold text-slate-950" style={{ backgroundColor: CSI_PARTNERSHIP_TRACK.color }}>
-                🤝 Corporate &amp; CSI / Social Impact Track
-              </div>
-              <h3 className="font-serif text-2xl text-slate-900 dark:text-white">
-                {CSI_PARTNERSHIP_TRACK.title}
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-300">
-                {CSI_PARTNERSHIP_TRACK.summary}
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                From equine-assisted breathwork for special-needs learners in Ballito to youth economic expos in Durban and literacy drives in Tongaat, explore our verified community timeline.
               </p>
             </div>
             <div className="shrink-0">
               <Link
-                href="/pillars#csi-partnerships"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-950 shadow-sm hover:opacity-90 transition-all"
-                style={{ backgroundColor: CSI_PARTNERSHIP_TRACK.color }}
+                href="/gallery"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-slate-900 dark:bg-[#90D1BB] text-white dark:text-slate-950 hover:opacity-90 transition-all shadow-sm"
               >
-                <span>View CSI Partnership Offerings</span>
-                <span>→</span>
+                <span>View Impact Timeline &amp; Gallery</span>
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* 5. FLAGSHIP SCHOOL PROGRAMME SPOTLIGHT: SDLC COURAGE CREW™ */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-gradient-to-br from-[#84CEE2]/15 via-white to-[#90D1BB]/15 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 border border-[#84CEE2]/40 p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-[#84CEE2] text-slate-950">
-              Flagship School Mental Health Programme (Ages 6–14)
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
-              SDLC Courage Crew™ — One Brave Breath at a Time
-            </h2>
-            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
-              <em>&ldquo;Big feelings are not bad behaviour. They are messages from a child&apos;s nervous system asking for connection, safety, and support.&rdquo;</em>
-            </p>
-            <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-              Our South African, trauma-informed school initiative equips Foundation, Intermediate, and Senior Primary learners with practical emotional regulation tools, Calm Corner classroom guides, and 8 relatable animal companions.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-2">
+          {/* Compact 3-Photo Preview Strip (Eager-loaded & Compressed for Instant Rendering) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {IMPACT_TIMELINE_EVENTS.slice(0, 3).map((ev) => (
               <Link
-                href="/pillars#courage-crew"
-                className="px-6 py-3 rounded-full text-sm font-semibold bg-slate-900 dark:bg-[#84CEE2] text-white dark:text-slate-950 hover:opacity-90 transition-all"
+                key={ev.id}
+                href="/gallery"
+                className="group relative h-56 rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-800 shadow-xs"
               >
-                Explore the Courage Crew™ Programme →
-              </Link>
-              <Link
-                href="/contact"
-                className="px-5 py-3 rounded-full text-sm font-semibold bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700"
-              >
-                Book for a School or Sponsor via CSI
-              </Link>
-            </div>
-          </div>
-          <div className="lg:col-span-5">
-            <Link href="/pillars#courage-crew" className="block overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 shadow-lg hover:scale-[1.01] transition-transform">
-              <img
-                src="/assets/courage-crew-poster.jpg"
-                alt="SDLC Courage Crew Trauma-Informed School Mental Health Programme"
-                className="w-full h-80 object-cover object-top"
-              />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. 2026 IMPACT HIGHLIGHTS PREVIEW — Proof Before the Ask */}
-      <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-          <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-[#90D1BB]">
-              Verified Community Proof
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1">
-              2026 Outreach &amp; Impact Highlights
-            </h2>
-          </div>
-          <Link
-            href="/gallery"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 dark:text-[#84CEE2] hover:underline"
-          >
-            <span>View Full 2026 Impact Timeline &amp; Photo Collage</span>
-            <span>→</span>
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {IMPACT_TIMELINE_EVENTS.slice(0, 3).map((ev) => (
-            <Link
-              key={ev.id}
-              href="/gallery"
-              className="group rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-all flex flex-col"
-            >
-              <div className="h-52 overflow-hidden relative bg-slate-100 dark:bg-slate-800">
                 <img
                   src={ev.images[0].src}
                   alt={ev.images[0].alt}
+                  loading="eager"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <span
-                  className="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-semibold text-slate-950 shadow-sm"
-                  style={{ backgroundColor: ev.pillarColor }}
-                >
-                  {ev.pillar} • {ev.dateLabel}
-                </span>
-              </div>
-              <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
-                <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">
-                    📍 {ev.location}
-                  </div>
-                  <h3 className="font-serif text-lg text-slate-900 dark:text-white group-hover:text-[#0ea5e9] dark:group-hover:text-[#84CEE2] transition-colors">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent flex flex-col justify-end p-4">
+                  <span
+                    className="inline-block self-start px-2.5 py-0.5 rounded-full text-[11px] font-bold text-slate-950 mb-1.5"
+                    style={{ backgroundColor: ev.pillarColor }}
+                  >
+                    {ev.pillar}
+                  </span>
+                  <h3 className="font-serif text-base text-white leading-snug line-clamp-2">
                     {ev.title}
                   </h3>
-                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-2 line-clamp-3 leading-relaxed">
-                    {ev.summary}
-                  </p>
                 </div>
-                <div className="text-xs font-semibold text-slate-900 dark:text-[#84CEE2] pt-2">
-                  View Event Photos →
-                </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* 7. FINAL HIGH-TRUST CTA BANNER — Placed After Trust, Sources & Proof Are Established */}
+      {/* 4. OUR SPONSORS STRIP */}
+      <SponsorTrustBar />
+
+      {/* 5. SIMPLIFIED "OUR PROGRAMMES" TEASER BOX (Cropped Courage Crew Preview -> /programs) */}
+      <section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#84CEE2]/45 p-6 sm:p-9 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7 space-y-4">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#84CEE2]/20 text-slate-900 dark:text-[#84CEE2]">
+              Our Programmes
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
+              Practical Programmes Built for Schools &amp; Communities
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              Explore our structured community and school programmes — featuring our flagship{' '}
+              <strong className="text-slate-900 dark:text-white">SDLC Courage Crew™</strong> emotional wellbeing curriculum for learners aged 6–14, youth literacy workshops, and digital skills training.
+            </p>
+            <div className="pt-2">
+              <Link
+                href="/programs"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-slate-900 dark:bg-[#84CEE2] text-white dark:text-slate-950 hover:opacity-90 transition-all shadow-sm"
+              >
+                <span>Explore Our Programmes</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* Cropped Preview Window of Courage Crew™ (Links directly to /programs#courage-crew) */}
+          <div className="lg:col-span-5">
+            <Link
+              href="/programs#courage-crew"
+              className="group block relative h-56 sm:h-64 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-md"
+              title="View the SDLC Courage Crew Programme"
+            >
+              <img
+                src="/assets/courage-crew-poster.jpg"
+                alt="SDLC Courage Crew School Mental Health Programme Preview"
+                loading="eager"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-4 flex items-center justify-between text-white">
+                <div>
+                  <div className="text-[11px] font-semibold uppercase tracking-wider text-[#84CEE2]">
+                    Flagship School Programme
+                  </div>
+                  <div className="font-serif text-lg">SDLC Courage Crew™</div>
+                </div>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#84CEE2] text-slate-950">
+                  View Details →
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. SIMPLIFIED VOLUNTEERING & PARTNERSHIP SECTION */}
+      <section className="py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div className="rounded-3xl p-7 sm:p-9 bg-[#FAF9F6] dark:bg-slate-900/90 border-2 border-[#A4A5C6]/50 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#A4A5C6] text-slate-950">
+              Volunteer &amp; Partner With Us
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl text-slate-900 dark:text-white">
+              Want to Volunteer Your Skills or Partner With SDLC?
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+              Whether you are an educator, mentor, community volunteer, school principal, or an organisation looking to collaborate on a social impact initiative, we would love to connect with you.
+            </p>
+          </div>
+          <div className="shrink-0">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-950 shadow-sm hover:opacity-90 transition-all"
+              style={{ backgroundColor: '#A4A5C6' }}
+            >
+              <span>Contact &amp; Volunteer</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FINAL DONATION CTA BANNER */}
       <NextStepBanner
-        stepLabel="Step Into the Mission"
-        title="Ready to Partner With SDLC or Sponsor a Programme?"
-        description="Now that you've seen our M.E.E.T. framework, institutional partners, and 2026 community track record, explore our Pillars in detail or partner with us through Corporate CSI or direct programme support."
-        primaryHref="/pillars"
-        primaryLabel="Explore All 4 M.E.E.T. Pillars"
-        secondaryHref="/donate"
-        secondaryLabel="Partner / Support Our Mission"
+        stepLabel="Support Registered NPO 301-712"
+        title="Support Our Mission to Empower Women & Children"
+        description="Every contribution helps fund trauma-informed school kits, youth literacy drives, women-led enterprise mentorship, and sanitary dignity packs across KwaZulu-Natal."
+        primaryHref="/donate"
+        primaryLabel="Support Our Mission"
+        secondaryHref="/contact"
+        secondaryLabel="Get in Touch"
       />
     </div>
   );

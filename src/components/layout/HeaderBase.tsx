@@ -8,248 +8,164 @@ import ThemeToggle from '@/components/ThemeToggle';
 
 export default function HeaderBase() {
   const pathname = usePathname();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [aboutDropdown, setAboutDropdown] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/';
     return pathname?.startsWith(href);
   };
 
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/about', label: 'Our Mission' },
+    { href: '/leadership', label: 'Founder & Board' },
+    { href: '/contact', label: 'Contact Us' },
+  ];
+
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md transition-colors">
-      {/* Top Verification Micro-Bar */}
-      <div className="bg-slate-900 dark:bg-slate-900 text-white text-xs py-1.5 px-4">
+      {/* Top Verification & One-Click Contact Micro-Bar */}
+      <div className="bg-slate-900 dark:bg-slate-900 text-white text-xs py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-[#84CEE2]/20 text-[#84CEE2] border border-[#84CEE2]/40">
-              ✓ Registered South African NPO 301-712
-            </span>
-            <span className="hidden sm:inline text-slate-300">
-              M.E.E.T. For Impact: Mental Health • Education • Entrepreneurship • Technology
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#84CEE2]/20 text-[#84CEE2] border border-[#84CEE2]/40">
+              <svg
+                className="w-3.5 h-3.5 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2.5}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Registered South African NPO 301-712</span>
             </span>
           </div>
-          <div className="flex items-center gap-4 text-slate-300">
-            <a href={`mailto:${siteConfig.email}`} className="hover:text-[#84CEE2] transition-colors">
-              {siteConfig.email}
+
+          <div className="flex items-center gap-4 text-slate-200">
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="inline-flex items-center gap-1.5 hover:text-[#84CEE2] transition-colors font-medium"
+              title="Send us an email"
+            >
+              <svg
+                className="w-3.5 h-3.5 text-[#84CEE2] shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+              <span>{siteConfig.email}</span>
             </a>
             <a
               href={`https://wa.me/${siteConfig.whatsappNumber}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-[#90D1BB] transition-colors font-medium"
+              className="inline-flex items-center gap-1.5 hover:text-[#90D1BB] transition-colors font-medium"
+              title="Message or call us on WhatsApp"
             >
-              WhatsApp: {siteConfig.phoneDisplay}
+              <svg
+                className="w-3.5 h-3.5 text-[#90D1BB] shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                />
+              </svg>
+              <span>{siteConfig.phoneDisplay}</span>
             </a>
           </div>
         </div>
       </div>
 
-      {/* Main Navigation Bar (4+1 Progressive Structure to Prevent Decision Fatigue) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group">
-          <img
-            src="/assets/sdlc-logo-transparent.png"
-            alt="Simonia Development Learning Centre Logo"
-            className="h-13 w-auto object-contain rounded-lg bg-white p-0.5"
-          />
-          <div>
-            <span className="block font-serif text-xl sm:text-2xl tracking-tight text-slate-900 dark:text-white">
-              SDLC
-            </span>
-            <span className="block text-[11px] uppercase tracking-widest text-slate-500 dark:text-slate-400 font-medium">
-              Skills Development • NPO 301-712
-            </span>
-          </div>
-        </Link>
+      {/* Main Header Row: [Left: Light/Dark Toggle] | [Centre: Standalone Readable Logo] | [Right: Burger Menu] */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 grid grid-cols-3 items-center">
+        {/* Left: Light/Dark Mode Toggle */}
+        <div className="flex items-center justify-start">
+          <ThemeToggle />
+        </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2">
+        {/* Centre: Standalone Cropped SDLC Logo (Sized for 60+ Readability, No Redundant Text Attached) */}
+        <div className="flex items-center justify-center">
           <Link
             href="/"
-            className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-              isActive('/')
-                ? 'bg-[#84CEE2]/15 text-slate-900 dark:text-[#84CEE2] font-semibold'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900'
-            }`}
+            onClick={() => setMenuOpen(false)}
+            className="inline-flex items-center justify-center rounded-2xl bg-white px-3 py-1.5 shadow-xs border border-slate-200/70 dark:border-slate-700 hover:opacity-95 transition-opacity"
+            aria-label="Simonia Development Learning Centre Home"
           >
-            Home
-          </Link>
-
-          {/* Grouped Dropdown: Separates Mission from Board without cluttering the header */}
-          <div
-            className="relative"
-            onMouseEnter={() => setAboutDropdown(true)}
-            onMouseLeave={() => setAboutDropdown(false)}
-          >
-            <button
-              type="button"
-              onClick={() => setAboutDropdown(!aboutDropdown)}
-              className={`px-3.5 py-2 rounded-lg text-sm font-medium inline-flex items-center gap-1.5 transition-colors ${
-                isActive('/about') || isActive('/leadership')
-                  ? 'bg-[#84CEE2]/15 text-slate-900 dark:text-[#84CEE2] font-semibold'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900'
-              }`}
-            >
-              <span>About SDLC</span>
-              <svg className="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-
-            {aboutDropdown && (
-              <div className="absolute left-0 mt-1 w-64 rounded-2xl bg-white dark:bg-slate-900 shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50">
-                <Link
-                  href="/about"
-                  onClick={() => setAboutDropdown(false)}
-                  className="block p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 transition-colors"
-                >
-                  <div className="text-sm font-semibold text-slate-900 dark:text-white">
-                    Our Mission & Vision
-                  </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    Our purpose, goals, approach & institutional partners
-                  </div>
-                </Link>
-                <Link
-                  href="/leadership"
-                  onClick={() => setAboutDropdown(false)}
-                  className="block p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/70 transition-colors mt-1"
-                >
-                  <div className="text-sm font-semibold text-slate-900 dark:text-white">
-                    Founder & The Board
-                  </div>
-                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    Meet Simonia Buys Marimuthoo, Nicole Naidoo & Deandre Vanmali
-                  </div>
-                </Link>
-              </div>
-            )}
-          </div>
-
-          <Link
-            href="/pillars"
-            className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-              isActive('/pillars')
-                ? 'bg-[#84CEE2]/15 text-slate-900 dark:text-[#84CEE2] font-semibold'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900'
-            }`}
-          >
-            M.E.E.T. Pillars
-          </Link>
-
-          <Link
-            href="/gallery"
-            className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-              isActive('/gallery')
-                ? 'bg-[#84CEE2]/15 text-slate-900 dark:text-[#84CEE2] font-semibold'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900'
-            }`}
-          >
-            Impact Timeline
-          </Link>
-
-          <Link
-            href="/contact"
-            className={`px-3.5 py-2 rounded-lg text-sm font-medium transition-colors ${
-              isActive('/contact')
-                ? 'bg-[#84CEE2]/15 text-slate-900 dark:text-[#84CEE2] font-semibold'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900'
-            }`}
-          >
-            Contact
-          </Link>
-        </nav>
-
-        {/* Primary Action + Theme Toggle */}
-        <div className="hidden md:flex items-center gap-3">
-          <ThemeToggle />
-          <Link
-            href="/donate"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-slate-900 dark:bg-[#84CEE2] text-white dark:text-slate-950 hover:opacity-90 transition-all shadow-sm"
-          >
-            <span>Partner / Support</span>
-            <span aria-hidden="true">→</span>
+            <img
+              src="/assets/sdlc-logo-transparent.png"
+              alt="Simonia Development Learning Centre — Skills & Learning (NPO 301-712)"
+              loading="eager"
+              className="h-16 sm:h-20 w-auto object-contain"
+            />
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
+        {/* Right: Unified Burger Menu Button (Mobile & Desktop) */}
+        <div className="flex items-center justify-end">
           <button
             type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
-            aria-label="Toggle Menu"
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="inline-flex items-center gap-2 p-2.5 sm:px-3.5 sm:py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-slate-200/80 dark:hover:bg-slate-800 transition-colors"
+            aria-label="Toggle Navigation Menu"
+            aria-expanded={menuOpen}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {mobileOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              {menuOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
+            <span className="hidden sm:inline text-xs font-semibold">Menu</span>
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 pt-3 pb-6 space-y-2">
-          <Link
-            href="/"
-            onClick={() => setMobileOpen(false)}
-            className="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
-          >
-            Home
-          </Link>
-          <div className="px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-900/70 space-y-1">
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-              About Our NPO
+      {/* Unified Navigation Drawer (Clean 4 Options + Blue Contact & Volunteer Button) */}
+      {menuOpen && (
+        <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 px-4 pt-4 pb-6 shadow-xl">
+          <nav className="max-w-md mx-auto space-y-2">
+            {navLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+                className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
+                  isActive(item.href)
+                    ? 'bg-[#84CEE2]/20 text-slate-950 dark:text-[#84CEE2] font-semibold'
+                    : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+
+            <div className="pt-2">
+              <Link
+                href="/contact"
+                onClick={() => setMenuOpen(false)}
+                className="block w-full text-center px-5 py-3.5 rounded-xl text-base font-semibold bg-[#84CEE2] text-slate-950 hover:opacity-95 transition-all shadow-sm"
+              >
+                Contact &amp; Volunteer
+              </Link>
             </div>
-            <Link
-              href="/about"
-              onClick={() => setMobileOpen(false)}
-              className="block py-1.5 text-sm font-medium text-slate-800 dark:text-slate-200"
-            >
-              • Our Mission, Vision & Story
-            </Link>
-            <Link
-              href="/leadership"
-              onClick={() => setMobileOpen(false)}
-              className="block py-1.5 text-sm font-medium text-slate-800 dark:text-slate-200"
-            >
-              • Founder & The Board of Directors
-            </Link>
-          </div>
-          <Link
-            href="/pillars"
-            onClick={() => setMobileOpen(false)}
-            className="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
-          >
-            M.E.E.T. Pillars & Courage Crew™
-          </Link>
-          <Link
-            href="/gallery"
-            onClick={() => setMobileOpen(false)}
-            className="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
-          >
-            2026 Impact Timeline & Gallery
-          </Link>
-          <Link
-            href="/contact"
-            onClick={() => setMobileOpen(false)}
-            className="block px-3 py-2.5 rounded-xl text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-900"
-          >
-            Contact & Volunteer
-          </Link>
-          <Link
-            href="/donate"
-            onClick={() => setMobileOpen(false)}
-            className="block w-full text-center mt-3 px-4 py-3 rounded-xl text-base font-semibold bg-slate-900 dark:bg-[#84CEE2] text-white dark:text-slate-950"
-          >
-            Partner / Support Our Mission →
-          </Link>
+          </nav>
         </div>
       )}
     </header>

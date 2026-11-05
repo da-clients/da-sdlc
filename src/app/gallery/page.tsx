@@ -69,10 +69,10 @@ export default function GalleryTimelinePage() {
                       className="px-3.5 py-1 rounded-full text-xs font-bold text-slate-950"
                       style={{ backgroundColor: event.pillarColor }}
                     >
-                      🗓️ {event.dateLabel}
+                      {event.dateLabel}
                     </span>
                     <span className="px-3 py-1 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
-                      📍 {event.location}
+                      {event.location}
                     </span>
                   </div>
                   <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
@@ -107,12 +107,12 @@ export default function GalleryTimelinePage() {
                       <img
                         src={img.src}
                         alt={img.alt}
-                        loading="lazy"
+                        loading="eager"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                         <span className="text-xs font-medium text-white">
-                          🔍 Click to enlarge photo
+                          Click to enlarge photo
                         </span>
                       </div>
                     </button>
@@ -161,7 +161,7 @@ export default function GalleryTimelinePage() {
                 onClick={() => setLightboxImg(null)}
                 className="px-3 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold"
               >
-                ✕ Close
+                Close
               </button>
             </div>
             <div className="p-4 flex items-center justify-center bg-black">
@@ -180,9 +180,9 @@ export default function GalleryTimelinePage() {
         title="Help Us Create the Next Chapter of Impact"
         description="Whether through a Corporate CSI partnership, sponsoring a school's Courage Crew™ toolkit, or contributing a pad pack, your support directly empowers women and children."
         primaryHref="/donate"
-        primaryLabel="Partner or Support Our Mission"
+        primaryLabel="Support Our Mission"
         secondaryHref="/contact"
-        secondaryLabel="Contact / Volunteer"
+        secondaryLabel="Contact & Volunteer"
       />
     </div>
   );

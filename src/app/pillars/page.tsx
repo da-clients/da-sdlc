@@ -26,8 +26,8 @@ export default function PillarsPage() {
         </div>
       </section>
 
-      {/* Sticky Jump Bar — Instant Navigation to Every Single Pillar (No Broken Links!) */}
-      <div className="sticky top-20 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-3 px-4">
+      {/* Sticky Jump Bar */}
+      <div className="sticky top-28 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-3 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 mr-2 hidden sm:inline">
             Jump to Pillar:
@@ -48,7 +48,7 @@ export default function PillarsPage() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-slate-950 shadow-xs hover:opacity-90 transition-all"
             style={{ backgroundColor: CSI_PARTNERSHIP_TRACK.color }}
           >
-            <span>🤝 Corporate CSI</span>
+            <span>Corporate &amp; CSI Partnerships</span>
           </a>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function PillarsPage() {
           <section
             key={pillar.id}
             id={pillar.id}
-            className="scroll-mt-36 rounded-3xl bg-white dark:bg-slate-900 border-2 p-7 sm:p-10 shadow-sm space-y-8"
+            className="scroll-mt-40 rounded-3xl bg-white dark:bg-slate-900 border-2 p-7 sm:p-10 shadow-sm space-y-8"
             style={{ borderColor: pillar.borderSoft }}
           >
             {/* Pillar Header */}
@@ -73,7 +73,7 @@ export default function PillarsPage() {
                 </div>
                 <div>
                   <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                    Pillar 0{index + 1} • Official Sticker Colour
+                    Pillar 0{index + 1} • Official Framework Colour
                   </div>
                   <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
                     {pillar.title} — {pillar.subtitle}
@@ -95,7 +95,7 @@ export default function PillarsPage() {
               style={{ backgroundColor: pillar.bgSoft }}
             >
               <div className="text-sm font-semibold text-slate-900 dark:text-white">
-                📌 Why This Matters: {pillar.statHighlight}
+                Why This Matters: {pillar.statHighlight}
               </div>
               <div className="text-xs text-slate-600 dark:text-slate-400 italic">
                 Source: {pillar.statSource}
@@ -125,11 +125,9 @@ export default function PillarsPage() {
                     {pillar.programmes.map((prog) => (
                       <li key={prog} className="flex items-start gap-2.5">
                         <span
-                          className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-slate-950 shrink-0 mt-0.5"
+                          className="w-2.5 h-2.5 rounded-full shrink-0 mt-1.5"
                           style={{ backgroundColor: pillar.color }}
-                        >
-                          ✓
-                        </span>
+                        />
                         <span>{prog}</span>
                       </li>
                     ))}
@@ -138,15 +136,13 @@ export default function PillarsPage() {
               </div>
             </div>
 
-            {/* SPECIAL EMBED FOR MENTAL HEALTH PILLAR:
-                1. Flagship School Programme: SDLC Courage Crew™
-                2. Relocated Mental Health Helpline Directory & PDF (MEETingNeeds.pdf) */}
+            {/* Special Embed for Mental Health Pillar */}
             {pillar.id === 'mental-health' && (
               <div className="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-10">
                 {/* A. SDLC Courage Crew™ Flagship School Programme */}
                 <div
                   id="courage-crew"
-                  className="scroll-mt-36 rounded-3xl bg-gradient-to-br from-[#84CEE2]/15 via-[#FAF9F6] to-[#90D1BB]/15 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border border-[#84CEE2]/50 p-6 sm:p-8 space-y-6"
+                  className="scroll-mt-40 rounded-3xl bg-gradient-to-br from-[#84CEE2]/15 via-[#FAF9F6] to-[#90D1BB]/15 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 border border-[#84CEE2]/50 p-6 sm:p-8 space-y-6"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <div>
@@ -160,14 +156,12 @@ export default function PillarsPage() {
                         Trauma-Informed Mental Health &amp; Emotional Wellbeing Initiative for South African Schools
                       </p>
                     </div>
-                    <a
-                      href="/assets/courage-crew-poster.jpg"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/programs#courage-crew"
                       className="px-4 py-2 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 shadow-xs hover:bg-slate-50"
                     >
-                      🔍 View Full Programme Poster
-                    </a>
+                      View Full Programme Page →
+                    </Link>
                   </div>
 
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -202,7 +196,7 @@ export default function PillarsPage() {
                               className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-xs"
                             >
                               <div className="font-semibold text-slate-900 dark:text-white">
-                                {char.emoji} {char.name}
+                                {char.name}
                               </div>
                               <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                                 {char.trait}
@@ -214,10 +208,8 @@ export default function PillarsPage() {
                     </div>
 
                     <div className="lg:col-span-5">
-                      <a
-                        href="/assets/courage-crew-poster.jpg"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        href="/programs#courage-crew"
                         className="block rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-md"
                       >
                         <img
@@ -225,7 +217,7 @@ export default function PillarsPage() {
                           alt="SDLC Courage Crew Poster"
                           className="w-full h-auto object-contain"
                         />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -250,7 +242,7 @@ export default function PillarsPage() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-5 py-3 rounded-full text-xs sm:text-sm font-semibold bg-[#84CEE2] text-slate-950 hover:opacity-90 transition-all shrink-0"
                     >
-                      <span>📄 Download Full Helpline Report (PDF)</span>
+                      <span>Download Full Helpline Report (PDF)</span>
                     </a>
                   </div>
 
@@ -263,7 +255,7 @@ export default function PillarsPage() {
                       >
                         <div className="text-xs text-slate-400">{line.name}</div>
                         <div className="font-serif text-xl font-bold text-[#84CEE2] mt-1">
-                          📞 {line.number}
+                          {line.number}
                         </div>
                         <div className="text-[11px] text-slate-300 mt-1">{line.note}</div>
                       </a>
@@ -278,28 +270,20 @@ export default function PillarsPage() {
         {/* 5th Section: Corporate & CSI / Social Impact Partnerships */}
         <section
           id="csi-partnerships"
-          className="scroll-mt-36 rounded-3xl bg-white dark:bg-slate-900 border-2 p-7 sm:p-10 shadow-sm space-y-6"
+          className="scroll-mt-40 rounded-3xl bg-white dark:bg-slate-900 border-2 p-7 sm:p-10 shadow-sm space-y-6"
           style={{ borderColor: CSI_PARTNERSHIP_TRACK.borderSoft }}
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
-            <div className="flex items-center gap-4">
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl shadow-sm shrink-0"
-                style={{ backgroundColor: CSI_PARTNERSHIP_TRACK.color }}
-              >
-                🤝
+            <div>
+              <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
+                Institutional &amp; Corporate Partnerships
               </div>
-              <div>
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                  Institutional &amp; Corporate Partnerships
-                </div>
-                <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
-                  {CSI_PARTNERSHIP_TRACK.title}
-                </h2>
-              </div>
+              <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1">
+                {CSI_PARTNERSHIP_TRACK.title}
+              </h2>
             </div>
             <Link
-              href="/donate"
+              href="/contact"
               className="self-start sm:self-center px-5 py-2.5 rounded-full text-xs font-semibold text-slate-950 shrink-0"
               style={{ backgroundColor: CSI_PARTNERSHIP_TRACK.color }}
             >
@@ -318,11 +302,9 @@ export default function PillarsPage() {
                 className="p-4 rounded-2xl bg-[#FAF9F6] dark:bg-slate-950 border border-slate-200 dark:border-slate-800 flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300"
               >
                 <span
-                  className="w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold text-slate-950 shrink-0 mt-0.5"
+                  className="w-2.5 h-2.5 rounded-full shrink-0 mt-1.5"
                   style={{ backgroundColor: CSI_PARTNERSHIP_TRACK.color }}
-                >
-                  ✓
-                </span>
+                />
                 <span>{off}</span>
               </div>
             ))}
@@ -330,7 +312,6 @@ export default function PillarsPage() {
         </section>
       </div>
 
-      {/* Progressive Funnel Step -> Impact Timeline */}
       <NextStepBanner
         stepLabel="Next Step: Real-World Proof"
         title="See Our 4 Pillars in Action Across KwaZulu-Natal"

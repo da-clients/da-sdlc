@@ -47,6 +47,7 @@ export default function LeadershipBoardPage() {
                 <img
                   src={member.image}
                   alt={member.name}
+                  loading="eager"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
@@ -71,7 +72,7 @@ export default function LeadershipBoardPage() {
                     key={cred}
                     className="px-3 py-1 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700"
                   >
-                    ✓ {cred}
+                    {cred}
                   </span>
                 ))}
               </div>
@@ -92,8 +93,8 @@ export default function LeadershipBoardPage() {
         description="Explore our colour-coded M.E.E.T. pillars — including our flagship SDLC Courage Crew™ school mental health curriculum and digital literacy tracks."
         primaryHref="/pillars"
         primaryLabel="Explore the 4 M.E.E.T. Pillars"
-        secondaryHref="/donate"
-        secondaryLabel="Partner With Our Board"
+        secondaryHref="/contact"
+        secondaryLabel="Contact & Volunteer"
       />
     </div>
   );

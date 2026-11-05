@@ -1,17 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { siteConfig } from '@/config/site.config';
 
 export default function ContactVolunteerPage() {
   const [name, setName] = useState('');
   const [org, setOrg] = useState('');
-  const [topic, setTopic] = useState('Corporate CSI / Sponsorship');
+  const [topic, setTopic] = useState('Volunteer Sign-Up');
   const [message, setMessage] = useState('');
 
   const handleWhatsAppSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hi Simonia! My name is ${name}${org ? ` from ${org}` : ''}. Enquiry Topic: [${topic}]. ${message}`;
+    const text = `Hi Simonia! My name is ${name}${org ? ` (${org})` : ''}. Enquiry Topic: [${topic}]. ${message}`;
     window.open(`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -19,14 +20,53 @@ export default function ContactVolunteerPage() {
     <div className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       <div className="max-w-3xl mx-auto text-center space-y-4 mb-14">
         <span className="inline-block px-3.5 py-1 rounded-full text-xs font-semibold bg-[#84CEE2]/20 text-slate-800 dark:text-[#84CEE2]">
-          Get in Touch • Volunteer • Book a School Workshop
+          Contact Us • Volunteer • Partner With SDLC
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl text-slate-900 dark:text-white">
-          Connect With <span className="text-[#84CEE2]">SDLC</span>
+          Contact, Volunteer &amp; <span className="text-[#84CEE2]">Partner</span>
         </h1>
         <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300">
-          Whether you want to bring the <strong>SDLC Courage Crew™</strong> to your school, explore a Corporate CSI partnership, or volunteer your skills, we would love to hear from you.
+          Whether you want to volunteer your time and skills, bring the <strong>SDLC Courage Crew™</strong> to your school, or partner with us on a community initiative, we would love to hear from you.
         </p>
+      </div>
+
+      {/* 3 Ways to Connect Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#90D1BB]/50 space-y-2">
+          <span className="inline-block px-3 py-0.5 rounded-full text-xs font-bold bg-[#90D1BB] text-slate-950">
+            Volunteer With Us
+          </span>
+          <h2 className="font-serif text-xl text-slate-900 dark:text-white">
+            Share Your Time &amp; Skills
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            We welcome educators, mental wellness practitioners, mentors, technology facilitators, and community volunteers across KwaZulu-Natal.
+          </p>
+        </div>
+
+        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#A4A5C6]/50 space-y-2">
+          <span className="inline-block px-3 py-0.5 rounded-full text-xs font-bold bg-[#A4A5C6] text-slate-950">
+            Partner With Us
+          </span>
+          <h2 className="font-serif text-xl text-slate-900 dark:text-white">
+            Organisational &amp; CSI Partnerships
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Collaborate with SDLC on youth empowerment, women&apos;s enterprise workshops, or Corporate Social Investment (CSI) community programmes.
+          </p>
+        </div>
+
+        <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#84CEE2]/50 space-y-2">
+          <span className="inline-block px-3 py-0.5 rounded-full text-xs font-bold bg-[#84CEE2] text-slate-950">
+            Schools &amp; Communities
+          </span>
+          <h2 className="font-serif text-xl text-slate-900 dark:text-white">
+            Book a Programme
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Invite SDLC to bring the Courage Crew™ emotional wellbeing curriculum, reading drives, or digital literacy workshops to your school.
+          </p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -64,23 +104,31 @@ export default function ContactVolunteerPage() {
           </div>
 
           <div className="p-6 rounded-3xl bg-slate-900 text-white space-y-3">
-            <h3 className="font-serif text-xl text-[#90D1BB]">
-              🙋‍♀️ Sign Up to Volunteer
+            <h3 className="font-serif text-xl text-[#84CEE2]">
+              Looking to Make a Direct Donation?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              We welcome educators, mental wellness practitioners, mentors, technology facilitators, and community volunteers across KwaZulu-Natal. Select &ldquo;Volunteer Sign-Up&rdquo; in the form to join our next outreach!
+              Visit our dedicated Support page for our official Standard Bank NPO 301-712 EFT details and our Palesa Pads school sanitary supply drive.
             </p>
+            <div className="pt-1">
+              <Link
+                href="/donate"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold bg-[#84CEE2] text-slate-950 hover:opacity-90 transition-all"
+              >
+                <span>View Banking &amp; Donation Details →</span>
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Zero-Friction Inquiry & Volunteer Form */}
+        {/* Zero-Friction Inquiry, Partnership & Volunteer Form */}
         <div className="lg:col-span-7">
           <form
             onSubmit={handleWhatsAppSubmit}
             className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 p-7 sm:p-9 shadow-sm space-y-5"
           >
             <h2 className="font-serif text-2xl text-slate-900 dark:text-white">
-              Send Us a Direct Message
+              Send Us a Message
             </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -99,13 +147,13 @@ export default function ContactVolunteerPage() {
               </div>
               <div>
                 <label className="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">
-                  School / Company (Optional)
+                  School / Organisation (Optional)
                 </label>
                 <input
                   type="text"
                   value={org}
                   onChange={(e) => setOrg(e.target.value)}
-                  placeholder="e.g. Seatides Primary / ABC Corp"
+                  placeholder="e.g. Seatides Primary / ABC Company"
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm"
                 />
               </div>
@@ -120,10 +168,10 @@ export default function ContactVolunteerPage() {
                 onChange={(e) => setTopic(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm"
               >
-                <option value="Corporate CSI / Sponsorship">🤝 Corporate CSI / Sponsorship Partnership</option>
-                <option value="Book SDLC Courage Crew for a School">🏫 Book SDLC Courage Crew™ for a School</option>
-                <option value="Volunteer Sign-Up">🙋‍♀️ Sign Up to Volunteer With SDLC</option>
-                <option value="General Enquiry">💬 General NPO Enquiry</option>
+                <option value="Volunteer Sign-Up">Sign Up to Volunteer With SDLC</option>
+                <option value="Partner With SDLC / CSI">Partner With SDLC / Corporate Social Investment</option>
+                <option value="Book SDLC Courage Crew for a School">Book SDLC Courage Crew™ or a Workshop for a School</option>
+                <option value="General Enquiry">General NPO Enquiry</option>
               </select>
             </div>
 
@@ -136,7 +184,7 @@ export default function ContactVolunteerPage() {
                 required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                placeholder="Tell us how we can collaborate..."
+                placeholder="Tell us how you would like to volunteer, partner, or collaborate..."
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm"
               />
             </div>
