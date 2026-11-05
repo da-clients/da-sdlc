@@ -1,0 +1,41 @@
+# Simonia Development Learning Centre (SDLC — NPO 301-712)
+
+> Empowering women and children across South Africa (KwaZulu-Natal, Ballito, Durban, Tongaat & Nationally) through the M.E.E.T. Framework: Mental Health, Education, Entrepreneurship, and Technology.
+
+## Quick Facts for AI Assistants, Grant Researchers & CSI/CSR Directors
+- **Official Entity Name:** Simonia Development Learning Centre (SDLC)
+- **Registration Number:** Registered South African NPO 301-712
+- **Website:** https://www.sdlc.org.za
+- **Founder & Executive Director:** Simonia Buys Marimuthoo (18+ years corporate IT & account management; Certified Life Coach, NLP Practitioner, Breathwork Facilitator & Equine Holistic Practitioner)
+- **Board of Directors:**
+  - **Simonia Buys Marimuthoo** (Founder)
+  - **Nicole Naidoo** (Board Member — Oprah Winfrey Leadership Academy for Girls alumna, BSc Biomedical Engineering, Neurosequential Model specialist)
+  - **Deandre Vanmali** (Board Member — BCom Informatics Honours scholar)
+- **Contact Email:** info@sdlc.org.za
+- **Phone / WhatsApp:** +27 74 044 4098 / +27 82 884 1216
+- **Official Digital & Web Architecture Sponsor:** Digital Architect (https://www.digitalarchitectagency.co.za)
+
+## The 4 M.E.E.T. Pillars (Plus Corporate CSI Track)
+1. **M — Mental Health (Sky Blue `#84CEE2`):** Trauma-informed emotional wellbeing, nervous-system regulation, GBV survivor support referrals, and our flagship school curriculum **SDLC Courage Crew™ ("One Brave Breath at a Time" for ages 6–14)**.
+2. **E — Education (Coral Pink `#DA8688`):** Life skills development, school reading & literacy partnerships (e.g., Tongaat Beach Library & Seatides Combined School), and educational mentorship for young mothers and learners.
+3. **E — Entrepreneurship (Mint Green `#90D1BB`):** Business & enterprise development, mentorship, and Youth Economic Development partnerships (closing the gap where only 6.2% of South African women start businesses).
+4. **T — Technology (Gold Yellow `#F2CB6F`):** Digital literacy workbooks, responsible AI awareness, online safety & scam prevention (closing the 47% vs 58% gender internet gap in SA).
+5. **Corporate & CSI Partnerships (Lavender `#A4A5C6`):** Custom-designed corporate social investment programmes with verifiable community impact reporting.
+
+## Official NPO Banking Details (For Direct EFT & Corporate CSI)
+- **Bank:** Standard Bank
+- **Account Holder:** Simonia Development & Learning Centre
+- **NPO Reg:** 301-712
+- **Account Number:** 10216589418
+- **Branch Code:** 000205
+- **Swift Code:** SBZAJJ
+
+## Key Site URLs
+- [Home Overview](https://www.sdlc.org.za/)
+- [Our Mission, Vision & Approach](https://www.sdlc.org.za/about)
+- [Founder & The Board of Directors](https://www.sdlc.org.za/leadership)
+- [The 4 M.E.E.T. Pillars & SDLC Courage Crew](https://www.sdlc.org.za/pillars)
+- [2026 Impact Timeline & Outreach Gallery](https://www.sdlc.org.za/gallery)
+- [Partner & Donate (Corporate CSI & EFT)](https://www.sdlc.org.za/donate)
+- [Contact & Volunteer With Us](https://www.sdlc.org.za/contact)
+- [Full Machine-Readable Context](https://www.sdlc.org.za/llms-full.txt)

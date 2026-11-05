@@ -1,0 +1,21 @@
+# Digital Architect Universal Apache / cPanel Configuration
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  # 30-day cache for immutable media, styles, and scripts
+  <FilesMatch "\.(ico|jpe?g|png|gif|swf|css|gz|js|webp|pdf)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </FilesMatch>
+
+  # ZERO cache for HTML so content updates appear immediately on mobile & desktop
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+  </FilesMatch>
+</IfModule>
