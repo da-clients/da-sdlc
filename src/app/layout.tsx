@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Alice, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 import HeaderBase from '@/components/layout/HeaderBase';
@@ -7,17 +6,6 @@ import FooterBase from '@/components/layout/FooterBase';
 import AnalyticsProvider from '@/components/AnalyticsProvider';
 import JsonLdSchema from '@/components/JsonLdSchema';
 import { siteConfig } from '@/config/site.config';
-
-const alice = Alice({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-alice',
-});
-
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  variable: '--font-jakarta',
-});
 
 export const metadata: Metadata = {
   title: 'SDLC — Simonia Development Learning Centre | NPO 301-712',
@@ -97,8 +85,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${alice.variable} ${jakarta.variable}`}>
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alice&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
         <JsonLdSchema schema={npoSchema} />
       </head>
       <body className="min-h-screen flex flex-col bg-[#FAF9F6] dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">

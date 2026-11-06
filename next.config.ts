@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   trailingSlash: false,
+  experimental: {
+    cpus: 1,
+    staticGenerationMaxConcurrency: 1,
+  },
 };
 
 export default nextConfig;

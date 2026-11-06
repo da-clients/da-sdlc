@@ -3,12 +3,17 @@ export const siteConfig = {
   legalName: "Simonia Development Learning Centre",
   npoNumber: "NPO 301-712",
   tagline: "Empowering Women & Children Through M.E.E.T. — Mental Health, Education, Entrepreneurship & Technology.",
-  domain: "https://www.sdlc.org.za",
-  email: "info@sdlc.org.za",
-  phoneDisplay: "+27 74 044 4098",
-  phoneAltDisplay: "+27 82 884 1216",
-  whatsappNumber: "27740444098",
-  location: "Ballito, Durban & KwaZulu-Natal, South Africa",
+  domain: "https://da-sdlc.vercel.app",
+  email: "sdlc.npo@gmail.com",
+  phoneDisplay: "+27 76 962 4784",
+  phoneAltDisplay: "+27 74 044 4098",
+  whatsappNumber: "27769624784",
+  location: "KwaZulu-Natal & Gauteng (National NPO Footprint), South Africa",
+  socials: {
+    tiktok: "https://www.tiktok.com/@sdlc.npo",
+    instagram: "https://www.instagram.com/sdlc.npo",
+    facebook: "https://www.facebook.com/share/1BBMquChJQ/",
+  },
   analytics: {
     // Ready for Samuel's Microsoft Clarity & Google Analytics 4 IDs
     clarityId: process.env.NEXT_PUBLIC_CLARITY_ID || "",
@@ -24,8 +29,10 @@ export const siteConfig = {
   banking: {
     bankName: "Standard Bank",
     accountHolder: "Simonia Development & Learning Centre",
+    accountType: "Business Current Account",
     npoReg: "301-712",
     accountNumber: "10216589418",
+    branchName: "Universal Branch",
     branchCode: "000205",
     swiftCode: "SBZAJJ",
     snapScanUrl: "https://pos.snapscan.io/qr/Kwc3UjHr",
@@ -42,14 +49,14 @@ export const siteConfig = {
       logo: "/assets/sponsors/ilembe.png",
     },
     {
-      name: "Gauteng Tech Unit",
-      role: "Technology & Innovation Partner",
-      logo: "/assets/sponsors/gauteng-tech.jpg",
-    },
-    {
-      name: "Buzz Barn (Fairview Estate, Ballito)",
+      name: "Buzz Barn (Fairview Estate)",
       role: "Equine & Somatic Venue Partner",
       logo: "/assets/sponsors/buzz-barn.jpg",
+    },
+    {
+      name: "TNT Creative Solutions",
+      role: "Community Sports & Event Co-Host",
+      logo: "/assets/sponsors/gauteng-tech.jpg",
     },
     {
       name: "Print Centre",
@@ -59,7 +66,7 @@ export const siteConfig = {
     {
       name: "Palesa Pads",
       role: "Menstrual Dignity Campaign Partner",
-      logo: "/assets/sponsors/palesa-pads-qr.jpg",
+      logo: "/assets/sponsors/palesa-pads-logo.png",
     },
     {
       name: "Digital Architect",
