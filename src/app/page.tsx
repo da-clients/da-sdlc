@@ -251,10 +251,10 @@ export default function HomePage() {
                   <div className="text-[10px] font-semibold uppercase tracking-wider text-[#DA8688]">
                     Featured Cause Partner
                   </div>
-                  <div className="font-serif text-base">Palesa Pads Dignity Drive</div>
+                  <div className="font-serif text-base">Palesa Pads</div>
                 </div>
                 <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#DA8688] text-slate-950">
-                  R129 / Pack →
+                  Sponsor via SnapScan →
                 </span>
               </div>
             </a>
@@ -268,8 +268,7 @@ export default function HomePage() {
               Want to See What Our Partners Offer?
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              We collaborate with purpose-driven South African enterprises and community organisations to multiply our impact. Sponsor a set of 3 washable, reusable{' '}
-              <strong className="text-slate-900 dark:text-white">Palesa Pads</strong> (5-year guarantee) for a schoolgirl for just R129, or explore our broader network of corporate, sports, and municipal partnerships.
+              <strong className="text-slate-900 dark:text-white">Palesa Pads</strong> are high-quality, reusable cloth sanitary pads made in South Africa. They are more comfortable than disposable pads, can be worn for longer with no odour and fewer menstrual cramps due to the absence of chemicals. They are leak-free, easy to wash, and come with a guarantee of 5 years — because her period shouldn&apos;t hold her back.
             </p>
             <div className="pt-2 flex flex-wrap items-center gap-3.5">
               <a

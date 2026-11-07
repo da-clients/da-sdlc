@@ -34,7 +34,7 @@ export default function DonatePage() {
             Registered Non-Profit Organisation &bull; NPO 301-712
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-            Direct &amp; Transparent Giving <br className="hidden sm:inline" />
+            Direct &amp; Transparent Giving to <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-teal-600 to-rose-600 dark:from-[#84CEE2] dark:via-[#90D1BB] dark:to-[#DA8688]">
               Empower South African Youth
             </span>
@@ -278,7 +278,7 @@ export default function DonatePage() {
       <NextStepBanner
         stepLabel="Enterprise &amp; Brand Collaborations"
         title="Looking for Corporate CSI or Cause Partnerships?"
-        description="Discover how your business can co-sponsor community sports days, fund reusable menstrual dignity kits with Palesa Pads, or support our 4 M.E.E.T. empowerment pillars."
+        description="Discover how your business can co-sponsor community sports days, support reusable sanitary towel drives with Palesa Pads, or back our 4 M.E.E.T. empowerment pillars."
         primaryHref="/partners"
         primaryLabel="Explore Enterprise Partnerships"
         secondaryHref="/contact"

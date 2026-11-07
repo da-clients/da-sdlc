@@ -5,9 +5,9 @@ export const siteConfig = {
   tagline: "Empowering Women & Children Through M.E.E.T. — Mental Health, Education, Entrepreneurship & Technology.",
   domain: "https://da-sdlc.vercel.app",
   email: "sdlc.npo@gmail.com",
-  phoneDisplay: "+27 76 962 4784",
+  phoneDisplay: "074 044 4098",
   phoneAltDisplay: "+27 74 044 4098",
-  whatsappNumber: "27769624784",
+  whatsappNumber: "27740444098",
   location: "KwaZulu-Natal & Gauteng (National NPO Footprint), South Africa",
   socials: {
     tiktok: "https://www.tiktok.com/@sdlc.npo",
@@ -65,7 +65,7 @@ export const siteConfig = {
     },
     {
       name: "Palesa Pads",
-      role: "Menstrual Dignity Campaign Partner",
+      role: "Reusable Sanitary Towel Partner",
       logo: "/assets/sponsors/palesa-pads-logo.png",
     },
     {

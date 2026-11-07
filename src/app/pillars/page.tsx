@@ -26,8 +26,8 @@ export default function PillarsPage() {
         </div>
       </section>
 
-      {/* Sticky Jump Bar */}
-      <div className="sticky top-28 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 py-3 px-4">
+      {/* Static Pillar Jump Bar (Non-sticky so it never detaches from the header on scroll) */}
+      <div className="bg-slate-50/90 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800 py-4 px-4">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-2">
           <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 mr-2 hidden sm:inline">
             Jump to Pillar:
@@ -171,38 +171,50 @@ export default function PillarsPage() {
                       </p>
 
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                        <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#84CEE2]/14 via-white to-[#FAF9F6] dark:from-[#84CEE2]/15 dark:via-slate-900 dark:to-slate-950 border border-[#84CEE2]/50 border-l-4 border-l-[#84CEE2] shadow-2xs">
                           <div className="font-bold text-slate-900 dark:text-white mb-1">1. Connection Before Correction</div>
-                          <p className="text-slate-600 dark:text-slate-400">Adults respond with empathy, safety, and co-regulation first.</p>
+                          <p className="text-slate-600 dark:text-slate-300 leading-relaxed">Adults respond with empathy, safety, and co-regulation first.</p>
                         </div>
-                        <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#DA8688]/14 via-white to-[#FAF9F6] dark:from-[#DA8688]/15 dark:via-slate-900 dark:to-slate-950 border border-[#DA8688]/50 border-l-4 border-l-[#DA8688] shadow-2xs">
                           <div className="font-bold text-slate-900 dark:text-white mb-1">2. Safety Before Solutions</div>
-                          <p className="text-slate-600 dark:text-slate-400">Calm Corner kits, Feelings Check-In posters &amp; non-shaming language.</p>
+                          <p className="text-slate-600 dark:text-slate-300 leading-relaxed">Calm Corner kits, Feelings Check-In posters &amp; non-shaming language.</p>
                         </div>
-                        <div className="p-3.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                        <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#90D1BB]/14 via-white to-[#FAF9F6] dark:from-[#90D1BB]/15 dark:via-slate-900 dark:to-slate-950 border border-[#90D1BB]/50 border-l-4 border-l-[#90D1BB] shadow-2xs">
                           <div className="font-bold text-slate-900 dark:text-white mb-1">3. Regulation Before Reasoning</div>
-                          <p className="text-slate-600 dark:text-slate-400">Butterfly, Balloon, Snail &amp; 4-7-8 breathing + 5-Senses grounding.</p>
+                          <p className="text-slate-600 dark:text-slate-300 leading-relaxed">Butterfly, Balloon, Snail &amp; 4-7-8 breathing + 5-Senses grounding.</p>
                         </div>
                       </div>
 
                       <div>
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2.5">
-                          Meet the 8 Courage Crew™ Guides:
-                        </h4>
+                        <div className="flex items-center gap-2.5 mb-2.5">
+                          <span className="h-2 w-8 rounded-full bg-gradient-to-r from-[#84CEE2] via-[#DA8688] via-[#90D1BB] to-[#F2CB6F]" />
+                          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                            Meet the 8 Courage Crew™ Guides:
+                          </h4>
+                        </div>
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                          {COURAGE_CREW_CHARACTERS.map((char) => (
-                            <div
-                              key={char.name}
-                              className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-xs"
-                            >
-                              <div className="font-semibold text-slate-900 dark:text-white">
-                                {char.name}
+                          {COURAGE_CREW_CHARACTERS.map((char, idx) => {
+                            const accentColors = ['#84CEE2', '#DA8688', '#90D1BB', '#F2CB6F'];
+                            const accent = accentColors[idx % accentColors.length];
+                            return (
+                              <div
+                                key={char.name}
+                                className="p-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-2xs text-xs"
+                                style={{
+                                  borderLeftWidth: '4px',
+                                  borderLeftColor: accent,
+                                  backgroundImage: `linear-gradient(135deg, ${accent}18 0%, transparent 75%)`,
+                                }}
+                              >
+                                <div className="font-bold text-slate-900 dark:text-white">
+                                  {char.name}
+                                </div>
+                                <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-snug">
+                                  {char.trait}
+                                </div>
                               </div>
-                              <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                                {char.trait}
-                              </div>
-                            </div>
-                          ))}
+                            );
+                          })}
                         </div>
                       </div>
                     </div>

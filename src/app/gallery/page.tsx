@@ -1,7 +1,11 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { IMPACT_TIMELINE_EVENTS, ImpactTimelineEvent } from '@/data/sdlcData';
+import {
+  IMPACT_TIMELINE_EVENTS,
+  ADDITIONAL_GALLERY_COLLECTIONS,
+  ImpactTimelineEvent,
+} from '@/data/sdlcData';
 import NextStepBanner from '@/components/NextStepBanner';
 
 interface LightboxPhotoState {
@@ -16,10 +20,11 @@ export default function GalleryTimelinePage() {
   // Inline expandable event detail section directly beneath the timeline (null = hidden)
   const [selectedEvent, setSelectedEvent] = useState<ImpactTimelineEvent | null>(null);
   const [carouselIndex, setCarouselIndex] = useState<number>(0);
+  const [timelineScrollProgress, setTimelineScrollProgress] = useState<number>(0);
 
   // Gallery grouping filter & pagination by event group
   const [pillarFilter, setPillarFilter] = useState<string>('All');
-  const [visibleEventGroupsCount, setVisibleEventGroupsCount] = useState<number>(4);
+  const [visibleEventGroupsCount, setVisibleEventGroupsCount] = useState<number>(3);
 
   // Fullscreen image lightbox
   const [lightboxPhoto, setLightboxPhoto] = useState<LightboxPhotoState | null>(null);
@@ -28,7 +33,13 @@ export default function GalleryTimelinePage() {
   const inlineDetailRef = useRef<HTMLDivElement>(null);
   const gallerySectionRef = useRef<HTMLElement>(null);
 
-  const totalPhotosCount = IMPACT_TIMELINE_EVENTS.reduce(
+  // All categorised gallery collections = chronological dated milestones + ongoing partnership collections
+  const allGalleryCollections = [
+    ... [...IMPACT_TIMELINE_EVENTS].reverse(),
+    ...ADDITIONAL_GALLERY_COLLECTIONS,
+  ];
+
+  const totalPhotosCount = allGalleryCollections.reduce(
     (sum, ev) => sum + ev.images.length,
     0
   );
@@ -57,6 +68,17 @@ export default function GalleryTimelinePage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [selectedEvent, lightboxPhoto]);
 
+  const handleTimelineScroll = () => {
+    const el = timelineTrackRef.current;
+    if (!el) return;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    if (maxScroll <= 0) {
+      setTimelineScrollProgress(0);
+      return;
+    }
+    setTimelineScrollProgress(Math.min(100, Math.max(0, (el.scrollLeft / maxScroll) * 100)));
+  };
+
   const scrollTimeline = (direction: 'left' | 'right') => {
     if (timelineTrackRef.current) {
       const scrollAmount = direction === 'left' ? -340 : 340;
@@ -76,14 +98,12 @@ export default function GalleryTimelinePage() {
     }, 80);
   };
 
-  // Gallery displays events grouped by Event & Date (newest to oldest)
-  const chronologicalReversedEvents = [...IMPACT_TIMELINE_EVENTS].reverse();
   const filteredEventGroups =
     pillarFilter === 'All'
-      ? chronologicalReversedEvents
+      ? allGalleryCollections
       : pillarFilter === 'Gauteng'
-      ? chronologicalReversedEvents.filter((ev) => ev.region === 'Gauteng')
-      : chronologicalReversedEvents.filter((ev) => ev.pillar === pillarFilter);
+      ? allGalleryCollections.filter((ev) => ev.region === 'Gauteng')
+      : allGalleryCollections.filter((ev) => ev.pillar === pillarFilter);
 
   const visibleEventGroups = filteredEventGroups.slice(0, visibleEventGroupsCount);
 
@@ -100,7 +120,7 @@ export default function GalleryTimelinePage() {
             <span className="text-[#DA8688]">Event Gallery</span>
           </h1>
           <p className="text-sm sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            Scroll horizontally through our chronological milestones across KwaZulu-Natal and Johannesburg. Select any moment on the timeline to open its interactive photo carousel and story directly below.
+            Scroll horizontally through our dated milestones across KwaZulu-Natal and Johannesburg. Select any moment on the timeline to open its interactive photo carousel and story directly below.
           </p>
 
           {/* Quick Jump Buttons for Mobile & Desktop Convenience */}
@@ -109,7 +129,7 @@ export default function GalleryTimelinePage() {
               href="#timeline-section"
               className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-slate-900 dark:bg-[#84CEE2] text-white dark:text-slate-950 hover:opacity-90 transition-all shadow-xs"
             >
-              Explore Timeline ({IMPACT_TIMELINE_EVENTS.length} Milestones)
+              Explore Timeline ({IMPACT_TIMELINE_EVENTS.length} Dated Milestones)
             </a>
             <button
               type="button"
@@ -118,13 +138,13 @@ export default function GalleryTimelinePage() {
               }
               className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
             >
-              Jump to Event Gallery ({totalPhotosCount} Photos) ↓
+              Jump to Categorised Gallery ({totalPhotosCount} Photos) ↓
             </button>
           </div>
         </div>
       </section>
 
-      {/* SECTION 1: UNIFIED HORIZONTAL TIMELINE (Matches Excalidraw on Both Desktop & Mobile) */}
+      {/* SECTION 1: UNIFIED HORIZONTAL TIMELINE (Smooth Vertical + Horizontal Touch Scrolling & Custom M.E.E.T. Progress Track) */}
       <section
         id="timeline-section"
         className="py-12 sm:py-16 bg-slate-50/70 dark:bg-slate-900/40 border-b border-slate-200/80 dark:border-slate-800"
@@ -139,14 +159,14 @@ export default function GalleryTimelinePage() {
                 Interactive Milestone Timeline
               </h2>
               <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-                Swipe or scroll horizontally along the timeline line. Click &ldquo;More Info &amp; Photos&rdquo; on any card to expand its carousel right below the timeline.
+                Swipe sideways or use the arrows to browse dated milestones. Click &ldquo;More Info &amp; Photos&rdquo; on any card to expand its carousel right below.
               </p>
             </div>
 
             {/* Left / Right Scroll Controls (Visible on Both Mobile & Desktop) */}
-            <div className="flex items-center justify-between sm:justify-end gap-2">
-              <span className="text-xs text-slate-500 dark:text-slate-400 sm:hidden">
-                Swipe sideways along the line &rarr;
+            <div className="flex items-center justify-between sm:justify-end gap-3">
+              <span className="text-xs font-medium text-slate-500 dark:text-slate-400 sm:hidden">
+                Swipe sideways or scroll page freely
               </span>
               <div className="flex items-center gap-2">
                 <button
@@ -175,11 +195,17 @@ export default function GalleryTimelinePage() {
             </div>
           </div>
 
-          {/* UNIFIED HORIZONTAL TIMELINE TRACK (Identical Structure on Mobile & Desktop) */}
+          {/* UNIFIED HORIZONTAL TIMELINE TRACK
+              - Native scrollbar hidden ([scrollbar-width:none] [&::-webkit-scrollbar]:hidden) so there is NO white horizontal scrollbar
+              - touchAction: 'pan-x pan-y' so mobile users can freely scroll UP/DOWN the page while also swiping LEFT/RIGHT on the timeline */}
           <div
             ref={timelineTrackRef}
-            className="overflow-x-auto pb-6 pt-2 select-none scroll-smooth snap-x snap-mandatory touch-pan-x"
-            style={{ WebkitOverflowScrolling: 'touch' }}
+            onScroll={handleTimelineScroll}
+            className="overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-proximity [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            style={{
+              WebkitOverflowScrolling: 'touch',
+              touchAction: 'pan-x pan-y',
+            }}
           >
             <div className="inline-flex items-stretch min-w-max px-2 sm:px-4">
               {IMPACT_TIMELINE_EVENTS.map((event) => {
@@ -187,7 +213,7 @@ export default function GalleryTimelinePage() {
                 return (
                   <div
                     key={event.id}
-                    className="w-[270px] sm:w-[300px] shrink-0 snap-center flex flex-col items-center px-2.5 sm:px-3"
+                    className="w-[268px] sm:w-[300px] shrink-0 snap-center flex flex-col items-center px-2.5 sm:px-3"
                   >
                     {/* 1. DATE ABOVE THE TIMELINE LINE */}
                     <div className="mb-2 text-center">
@@ -246,6 +272,7 @@ export default function GalleryTimelinePage() {
                             src={event.heroImage}
                             alt={event.title}
                             loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                           />
                           <span
@@ -296,6 +323,22 @@ export default function GalleryTimelinePage() {
             </div>
           </div>
 
+          {/* Sleek M.E.E.T. Gradient Progress Indicator (Replaces clunky white browser scrollbar) */}
+          <div className="mt-3 flex items-center gap-4 px-2 sm:px-4">
+            <span className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 shrink-0">
+              Oct 2025
+            </span>
+            <div className="relative flex-1 h-1.5 rounded-full bg-slate-200/80 dark:bg-slate-800 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-[#84CEE2] via-[#DA8688] via-[#90D1BB] to-[#F2CB6F] transition-all duration-150"
+                style={{ width: `${Math.max(15, timelineScrollProgress)}%` }}
+              />
+            </div>
+            <span className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 shrink-0">
+              Oct 2026
+            </span>
+          </div>
+
           {/* TEMPORARY INLINE EXPANDABLE EVENT DETAIL SECTION (Appears Directly Beneath Timeline When a Button is Pressed) */}
           {selectedEvent && (
             <div
@@ -334,6 +377,7 @@ export default function GalleryTimelinePage() {
                   <img
                     src={selectedEvent.images[carouselIndex]?.src || selectedEvent.heroImage}
                     alt={selectedEvent.images[carouselIndex]?.alt || selectedEvent.title}
+                    decoding="async"
                     className="max-h-full max-w-full object-contain cursor-zoom-in"
                     onClick={() =>
                       setLightboxPhoto({
@@ -413,7 +457,7 @@ export default function GalleryTimelinePage() {
 
                 {/* Carousel Thumbnail Strip */}
                 {selectedEvent.images.length > 1 && (
-                  <div className="flex items-center gap-2.5 overflow-x-auto pb-2 pt-1">
+                  <div className="flex items-center gap-2.5 overflow-x-auto pb-2 pt-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     {selectedEvent.images.map((img, idx) => (
                       <button
                         key={img.src + idx}
@@ -429,6 +473,7 @@ export default function GalleryTimelinePage() {
                           src={img.src}
                           alt={img.alt}
                           loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover"
                         />
                       </button>
@@ -462,24 +507,24 @@ export default function GalleryTimelinePage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
             <span className="text-xs font-bold tracking-widest text-[#DA8688] uppercase">
-              Structured Visual Archive ({totalPhotosCount} Photographs)
+              Structured Visual Archive ({totalPhotosCount} Verified Photographs)
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white mt-1">
-              Gallery Grouped by Event &amp; Date
+              Gallery Grouped by Event &amp; Category
             </h2>
             <p className="mt-2 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
-              Every outreach, workshop, and community drive is organised into its own dated event collection below so you can browse clearly through each milestone. Click any photograph to enlarge.
+              Every outreach, workshop, and community partnership is organised into its own distinct collection below with zero duplicate photos. Click any photograph to view fullscreen.
             </p>
           </div>
 
           {/* Pillar / Region Filter Pills */}
           <div className="flex flex-wrap gap-2">
             {[
-              { id: 'All', label: `All Events (${IMPACT_TIMELINE_EVENTS.length})` },
+              { id: 'All', label: `All Collections (${allGalleryCollections.length})` },
               { id: 'Mental Health', label: 'Mental Health' },
               { id: 'Education', label: 'Education' },
               { id: 'Entrepreneurship', label: 'Entrepreneurship' },
-              { id: 'Community Drive', label: 'Community Drives' },
+              { id: 'Community Drive', label: 'Community & Partnerships' },
               { id: 'Gauteng', label: 'Johannesburg (Gauteng)' },
             ].map((f) => (
               <button
@@ -487,7 +532,7 @@ export default function GalleryTimelinePage() {
                 type="button"
                 onClick={() => {
                   setPillarFilter(f.id);
-                  setVisibleEventGroupsCount(4);
+                  setVisibleEventGroupsCount(3);
                 }}
                 className={`px-4 py-2 rounded-full text-xs font-semibold transition-all cursor-pointer ${
                   pillarFilter === f.id
@@ -562,6 +607,7 @@ export default function GalleryTimelinePage() {
                         src={img.src}
                         alt={img.alt}
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
@@ -591,7 +637,7 @@ export default function GalleryTimelinePage() {
               className="px-8 py-4 rounded-full bg-slate-900 text-white dark:bg-[#84CEE2] dark:text-slate-950 font-bold text-sm hover:opacity-90 transition-all shadow-md cursor-pointer"
             >
               Show More Event Collections (+
-              {Math.min(4, filteredEventGroups.length - visibleEventGroupsCount)} Events)
+              {Math.min(4, filteredEventGroups.length - visibleEventGroupsCount)} Collections)
             </button>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
               Showing {visibleEventGroupsCount} of {filteredEventGroups.length} event collections

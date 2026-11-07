@@ -251,18 +251,18 @@ export interface CauseEnterpriseItem {
 export const CAUSE_ENTERPRISE_PARTNERSHIPS: CauseEnterpriseItem[] = [
   {
     id: "palesa-pads",
-    title: "Palesa Reusable Sanitary Dignity Packs",
+    title: "Palesa Pads Reusable Sanitary Towels",
     category: "Social Enterprise",
     brandPartner: "Palesa Pads & SDLC",
     badgeColor: "#DA8688",
-    tagline: "Keeping Girls in School with Washable, Reusable Menstrual Towels",
+    tagline: "Her Period Shouldn't Hold Her Back — 5-Year Guarantee",
     description:
-      "No young woman should miss up to 50 days of school each year due to period poverty. Palesa Pads produces high-grade, washable, reusable sanitary towels that last up to 5 years. By purchasing or sponsoring Palesa Packs through SDLC, supporters simultaneously keep learners in classrooms and support female-owned South African manufacturing.",
+      "Palesa Pads are high-quality, reusable cloth sanitary pads made in South Africa. They are more comfortable than disposable pads, can be worn for longer with no odour and fewer menstrual cramps due to the absence of chemicals. They are leak-free, easy to wash, and come with a guarantee of 5 years.",
     dualBenefit: {
-      forCommunity: "Keeps schoolgirls learning continuously with hygiene, comfort, and zero monthly supply anxiety.",
-      forEnterprise: "Drives sustainable local manufacturing, environmental waste reduction, and verifiable social returns.",
+      forCommunity: "Keeps schoolgirls learning continuously with comfortable, chemical-free, reusable sanitary protection that lasts up to 5 years.",
+      forEnterprise: "Supports local South African manufacturing, reduces environmental waste, and keeps young women in school.",
     },
-    ctaText: "Sponsor a Palesa Dignity Kit",
+    ctaText: "Support Palesa Pads via SnapScan",
     ctaUrl: "https://pos.snapscan.io/qr/Kwc3UjHr",
   },
   {
@@ -435,13 +435,14 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
       { src: "/assets/gallery/padel-tournament-trophy.jpg", alt: "Championship winners receiving trophies and SDLC kits" },
       { src: "/assets/gallery/padel-tournament-court.jpg", alt: "Action on the courts during the In-a-Box fundraiser" },
       { src: "/assets/gallery/padel-extra-1.jpg", alt: "Padel 365 Greenstone tournament players and SDLC supporters" },
-      { src: "/assets/gallery/padel-extra-2.jpg", alt: "Teams competing during the 2025 Johannesburg fundraising tournament" },
       { src: "/assets/gallery/padel-extra-3.jpg", alt: "Courtside community spirit at Padel 365 Greenstone" },
-      { src: "/assets/gallery/padel-extra-4.jpg", alt: "Players and sponsors supporting SDLC In-a-Box kits" },
       { src: "/assets/gallery/padel-extra-5.jpg", alt: "Match play at Padel 365 Modderfontein" },
       { src: "/assets/gallery/padel-extra-6.jpg", alt: "SDLC banners and prize table at Greenstone" },
       { src: "/assets/gallery/padel-extra-7.jpg", alt: "Tournament participants celebrating after match play" },
       { src: "/assets/gallery/padel-extra-8.jpg", alt: "Community connections at the 2025 Gauteng fundraiser" },
+      { src: "/assets/gallery/padel-extra-9.jpg", alt: "Players competing in the Greenstone Padel 365 brackets" },
+      { src: "/assets/gallery/padel-extra-10.jpg", alt: "Supporters and teams gathered at Padel 365 Modderfontein" },
+      { src: "/assets/gallery/padel-extra-13.jpg", alt: "Closing team celebration at the SDLC Padel fundraiser" },
     ],
   },
   {
@@ -515,7 +516,6 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
       { src: "/assets/gallery/stanger-campus-equine-6.jpg", alt: "Facilitators supporting learners during outdoor equine grounding" },
       { src: "/assets/gallery/stanger-campus-equine-7.jpg", alt: "SDLC Mental Health Pillar outreach at Stanger Training Centre" },
       { src: "/assets/gallery/stanger-campus-equine-8.jpg", alt: "Group reflection and nervous system regulation with learners" },
-      { src: "/assets/gallery/stanger-campus-equine-9.jpg", alt: "Closing celebration of the Stanger Training Centre grounding session" },
     ],
   },
   {
@@ -546,9 +546,6 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
       { src: "/assets/gallery/stanger-buzzbarn-equine-9.jpg", alt: "Outdoor equine wellness day at Fairview Estate Ballito" },
       { src: "/assets/gallery/stanger-buzzbarn-equine-10.jpg", alt: "Facilitators and learners walking the arena trail at Buzz Barn" },
       { src: "/assets/gallery/stanger-buzzbarn-equine-12.jpg", alt: "Group moment at Buzz Barn Equine Breathwork outreach" },
-      { src: "/assets/gallery/stanger-1.jpg", alt: "Grounding breathwork circle at Buzz Barn Ballito" },
-      { src: "/assets/gallery/stanger-2.jpg", alt: "Somatic movement session at Fairview Estate" },
-      { src: "/assets/gallery/stanger-3.jpg", alt: "Stanger learners and SDLC team group celebration" },
     ],
   },
   {
@@ -633,9 +630,6 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
       { src: "/assets/gallery/seatides-inabox-14.jpg", alt: "Educators and library partners supporting Seatides Combined School" },
       { src: "/assets/gallery/seatides-inabox-15.jpg", alt: "Students celebrating literacy achievements with SDLC" },
       { src: "/assets/gallery/seatides-inabox-16.jpg", alt: "Closing group celebration at Seatides Combined School" },
-      { src: "/assets/gallery/tongaat-1.jpg", alt: "Seatides Combined School literacy session" },
-      { src: "/assets/gallery/tongaat-2.jpg", alt: "Interactive reading workshop with SDLC" },
-      { src: "/assets/gallery/tongaat-3.jpg", alt: "Students and facilitators celebrating reading" },
     ],
   },
   {
@@ -661,8 +655,8 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
       { src: "/assets/gallery/lotusville-primary-team.jpg", alt: "SDLC team with Lotusville Primary educators and leadership" },
       { src: "/assets/gallery/lotusville-primary-cards.jpg", alt: "Learners engaging with Courage Crew character cards" },
       { src: "/assets/gallery/lotusville-extra-1.jpg", alt: "Lotusville Primary learners participating in nervous system grounding" },
-      { src: "/assets/gallery/lotusville-extra-4.jpg", alt: "Interactive Courage Crew session in the school assembly hall" },
-      { src: "/assets/gallery/lotusville-extra-7.jpg", alt: "Facilitators guiding breathing exercises with primary learners" },
+      { src: "/assets/gallery/lotusville-extra-3.jpg", alt: "Interactive Courage Crew session in the school assembly hall" },
+      { src: "/assets/gallery/lotusville-extra-8.jpg", alt: "Facilitators guiding breathing exercises with primary learners" },
       { src: "/assets/gallery/lotusville-extra-9.jpg", alt: "Students practicing emotional check-ins at Lotusville Primary" },
       { src: "/assets/gallery/lotusville-extra-11.jpg", alt: "Lotusville Primary School Courage Crew programme group moment" },
     ],
@@ -740,26 +734,6 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
     ],
   },
   {
-    id: "sibaya-npo-workshop-2026",
-    year: "2026",
-    dateLabel: "October 2026",
-    location: "Sibaya Precinct, North Coast KZN",
-    region: "KwaZulu-Natal",
-    pillar: "Entrepreneurship",
-    pillarColor: "#90D1BB",
-    title: "SDLC at the Sibaya NPO Funding & Governance Workshop",
-    partner: "Sibaya Community & NPO Development Network",
-    summary:
-      "Represented SDLC at the Sibaya NPO Funding Workshop, strengthening strategic grant readiness and sustainable community impact partnerships.",
-    detailedStory:
-      "SDLC participated in the Sibaya NPO Funding Workshop, engaging with fellow social impact leaders, corporate CSI stakeholders, and funding bodies to strengthen NPO governance, compliance, and long-term sustainability for our M.E.E.T. community programmes.",
-    heroImage: "/assets/meet-framework-pamphlet.jpg",
-    images: [
-      { src: "/assets/meet-framework-pamphlet.jpg", alt: "SDLC M.E.E.T. Framework and Sponsorship documentation presented at workshops" },
-      { src: "/assets/gallery/youth-econ-2.jpg", alt: "SDLC pillar banners showcasing Education, Mental Health, and Entrepreneurship" },
-    ],
-  },
-  {
     id: "jhb-women-in-business-expo-2026",
     year: "2026",
     dateLabel: "31 October 2026 (9 AM – 3 PM)",
@@ -772,7 +746,7 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
     summary:
       "Showcased all four S-D-L-C In-a-Box toolkits, 'Secure the Bag' entrepreneurship guides, and Palesa Pads at the Edenvale Women in Business Expo.",
     detailedStory:
-      "On 31 October 2026 (9:00 AM – 3:00 PM) at Dickie Fritz Hall in Dowerglen, Edenvale, our Johannesburg SDLC team hosted a full exhibition stall at the Sip & Slay Women in Business Expo. Visitors explored our four physical 'S-D-L-C' In-a-Box kits across Mental Health, Education, Entrepreneurship (featuring 'Business Practice' and 'Secure the Bag' financial literacy guides), and Technology, alongside our Palesa Pads dignity campaign.",
+      "On 31 October 2026 (9:00 AM – 3:00 PM) at Dickie Fritz Hall in Dowerglen, Edenvale, our Johannesburg SDLC team hosted a full exhibition stall at the Sip & Slay Women in Business Expo. Visitors explored our four physical 'S-D-L-C' In-a-Box kits across Mental Health, Education, Entrepreneurship (featuring 'Business Practice' and 'Secure the Bag' financial literacy guides), and Technology, alongside our Palesa Pads reusable sanitary pad partnership.",
     heroImage: "/assets/gallery/jhb-women-expo-1.jpg",
     images: [
       { src: "/assets/gallery/jhb-women-expo-1.jpg", alt: "SDLC Johannesburg team at the Women in Business Expo stall in Dowerglen, Edenvale" },
@@ -785,24 +759,27 @@ export const IMPACT_TIMELINE_EVENTS: ImpactTimelineEvent[] = [
       { src: "/assets/gallery/jhb-women-expo-8.jpg", alt: "Mental Health In-a-Box featuring Secret Garden mindfulness colouring book and bath salts" },
     ],
   },
+];
+
+export const ADDITIONAL_GALLERY_COLLECTIONS: ImpactTimelineEvent[] = [
   {
-    id: "palesa-pads-ongoing",
-    year: "Ongoing",
-    dateLabel: "Ongoing National Drive",
+    id: "palesa-pads-collection",
+    year: "Partnership",
+    dateLabel: "Ongoing Partnership",
     location: "KwaZulu-Natal & Gauteng School Outreaches",
     region: "National",
     pillar: "Community Drive",
-    pillarColor: "#A4A5C6",
-    title: "Palesa Pads Menstrual Dignity Campaign",
+    pillarColor: "#DA8688",
+    title: "Palesa Pads & SDLC Reusable Sanitary Pad Partnership",
     partner: "Palesa Pads & SnapScan",
     summary:
-      "Distributing reusable, washable sanitary towels (5-year guarantee) to keep vulnerable young women in school with full dignity.",
+      "Palesa Pads are high-quality, reusable cloth sanitary pads made in South Africa — leak-free, easy to wash, and guaranteed for 5 years.",
     detailedStory:
-      "Through our ongoing cause partnership with Palesa Pads, SDLC supplies schools across KwaZulu-Natal and Gauteng with washable menstrual kits that provide up to five years of continuous hygiene protection for just R129 per set of 3 pads. This initiative tackles the root causes of menstrual absenteeism, ensuring that dignity is never a barrier to educational attainment.",
-    heroImage: "/assets/sponsors/palesa-pads-logo.png",
+      "Palesa Pads are high-quality, reusable cloth sanitary pads made in South Africa. They are more comfortable than disposable pads, can be worn for longer with no odour and fewer menstrual cramps due to the absence of chemicals. They are leak-free, easy to wash, and come with a guarantee of 5 years — because her period shouldn't hold her back.",
+    heroImage: "/assets/gallery/palesa-1.jpg",
     images: [
-      { src: "/assets/gallery/palesa-1.jpg", alt: "Palesa Pads and SDLC menstrual dignity school outreach" },
-      { src: "/assets/gallery/palesa-2.jpg", alt: "Sanitary pad sponsorship distribution for learners" },
+      { src: "/assets/gallery/palesa-1.jpg", alt: "Palesa Pads and SDLC school outreach" },
+      { src: "/assets/gallery/palesa-2.jpg", alt: "Palesa Pads reusable sanitary towel distribution for learners" },
     ],
   },
 ];

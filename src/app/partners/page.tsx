@@ -59,7 +59,7 @@ export default function PartnersPage() {
               Why Cause-Driven Enterprise Works
             </h2>
             <p className="mt-3 text-slate-600 dark:text-slate-400 text-sm sm:text-base">
-              Traditional charity often relies on one-off goodwill. Our shared-value model unites community needs with practical commercial products and events.
+              Our shared-value model unites community empowerment with sustainable South African enterprise, practical school essentials, and active community events.
             </p>
           </div>
 
@@ -69,10 +69,10 @@ export default function PartnersPage() {
                 1
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
-                Dignity Products for Learners
+                Essential Care for Learners
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Items like Palesa washable sanitary towels provide 5 continuous years of hygiene, eradicating school absenteeism without recurring monthly financial burdens.
+                Items like Palesa washable sanitary towels provide 5 continuous years of reliable protection, supporting uninterrupted school attendance.
               </p>
             </div>
 
@@ -134,7 +134,7 @@ export default function PartnersPage() {
                     Social Enterprise Collaboration
                   </span>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                    Palesa Pads Menstrual Dignity Packs
+                    Palesa Pads Reusable Sanitary Towels
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                     Washable, Reusable Sanitary Towels Lasting 5 Years
@@ -143,7 +143,7 @@ export default function PartnersPage() {
 
                 <div className="lg:col-span-8 space-y-6">
                   <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
-                    In South Africa, up to 7 million young women miss school every month because they cannot afford disposable sanitary pads. Disposable pads also create staggering non-biodegradable waste. Palesa Pads manufactures premium, reusable, washable cloth sanitary pads right here in South Africa.
+                    Palesa Pads are high-quality, reusable cloth sanitary pads made in South Africa. They are more comfortable than disposable pads, can be worn for longer with no odour and fewer menstrual cramps due to the absence of chemicals. They are leak-free, easy to wash, and come with a guarantee of 5 years — because her period shouldn&apos;t hold her back.
                   </p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -152,16 +152,16 @@ export default function PartnersPage() {
                         For the School &amp; Learner
                       </span>
                       <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                        Full menstrual autonomy for up to 5 years. Zero school days missed due to period poverty, paired with SDLC hygiene education.
+                        Comfortable, chemical-free protection with a 5-year guarantee so young women never have to miss school days.
                       </p>
                     </div>
 
                     <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700">
                       <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-[#90D1BB]">
-                        For Ethical Manufacturing
+                        For South African Manufacturing
                       </span>
                       <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                        Funds female manufacturing jobs in South Africa, eliminating tons of plastic sanitary waste from our landfills.
+                        Supports local South African manufacturing and eco-friendly reusable care that reduces disposable waste.
                       </p>
                     </div>
                   </div>
@@ -173,7 +173,7 @@ export default function PartnersPage() {
                       rel="noopener noreferrer"
                       className="px-6 py-3 rounded-xl bg-[#DA8688] text-white font-semibold text-sm hover:opacity-95 transition-all shadow-xs"
                     >
-                      Sponsor a Palesa Dignity Kit via SnapScan
+                      Sponsor Palesa Pads via SnapScan
                     </a>
                     <Link
                       href="/contact"

@@ -142,29 +142,32 @@ export default function AboutOrganisationPage() {
             </div>
           </div>
 
-          {/* Our 3-Part Approach */}
-          <div className="mt-12 rounded-3xl p-8 bg-[#FAF9F6] dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
-            <h3 className="font-serif text-2xl text-slate-900 dark:text-white mb-6 text-center">
-              Our 3-Pillar Delivery Philosophy
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
-              <div className="p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800">
-                <div className="font-semibold text-slate-900 dark:text-white mb-1">1. Holistic &amp; Hands-On</div>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Combining classroom instruction, somatic/breathwork regulation, practical exercises, and ongoing mentorship.
-                </p>
-              </div>
-              <div className="p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800">
-                <div className="font-semibold text-slate-900 dark:text-white mb-1">2. Interactive &amp; Culturally Relevant</div>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Designed specifically for South African learners and communities, encouraging collaboration across cultures and industries.
-                </p>
-              </div>
-              <div className="p-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800">
-                <div className="font-semibold text-slate-900 dark:text-white mb-1">3. Inclusive &amp; Accessible</div>
-                <p className="text-slate-600 dark:text-slate-400">
-                  Prioritizing neurodiversity, special-needs inclusion, and welcoming spaces for participants from every background.
-                </p>
+          {/* Our Pillars Delivery Philosophy */}
+          <div className="mt-12 rounded-3xl overflow-hidden bg-[#FAF9F6] dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xs">
+            <div className="h-2 w-full bg-gradient-to-r from-[#84CEE2] via-[#DA8688] via-[#90D1BB] to-[#F2CB6F]" />
+            <div className="p-8">
+              <h3 className="font-serif text-2xl sm:text-3xl text-slate-900 dark:text-white mb-6 text-center">
+                Our Pillars Delivery Philosophy
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800 border-l-4 border-l-[#84CEE2] shadow-2xs">
+                  <div className="font-semibold text-slate-900 dark:text-white mb-1.5">1. Holistic &amp; Hands-On</div>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Combining classroom instruction, somatic/breathwork regulation, practical exercises, and ongoing mentorship.
+                  </p>
+                </div>
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800 border-l-4 border-l-[#DA8688] shadow-2xs">
+                  <div className="font-semibold text-slate-900 dark:text-white mb-1.5">2. Interactive &amp; Culturally Relevant</div>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Designed specifically for South African learners and communities, encouraging collaboration across cultures and industries.
+                  </p>
+                </div>
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200/70 dark:border-slate-800 border-l-4 border-l-[#90D1BB] shadow-2xs">
+                  <div className="font-semibold text-slate-900 dark:text-white mb-1.5">3. Inclusive &amp; Accessible</div>
+                  <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Prioritizing neurodiversity, special-needs inclusion, and welcoming spaces for participants from every background.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

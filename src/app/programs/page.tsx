@@ -127,28 +127,28 @@ export default function ProgramsPage() {
               </p>
 
               {/* 3 Trauma-Informed Pillars of the Approach */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                <div className="p-4 rounded-2xl bg-[#FAF9F6] dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
+                <div className="relative overflow-hidden p-4 rounded-2xl bg-gradient-to-br from-[#84CEE2]/12 via-white to-[#FAF9F6] dark:from-[#84CEE2]/15 dark:via-slate-900 dark:to-slate-950 border border-[#84CEE2]/50 border-l-4 border-l-[#84CEE2] shadow-2xs">
                   <div className="font-bold text-slate-900 dark:text-white mb-1">
                     1. Connection Before Correction
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     Adults respond with empathy, safety, and co-regulation before addressing behaviour.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#FAF9F6] dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div className="relative overflow-hidden p-4 rounded-2xl bg-gradient-to-br from-[#DA8688]/12 via-white to-[#FAF9F6] dark:from-[#DA8688]/15 dark:via-slate-900 dark:to-slate-950 border border-[#DA8688]/50 border-l-4 border-l-[#DA8688] shadow-2xs">
                   <div className="font-bold text-slate-900 dark:text-white mb-1">
                     2. Safety Before Solutions
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     Calm Corner kits, Feelings Check-In posters, and non-shaming classroom communication.
                   </p>
                 </div>
-                <div className="p-4 rounded-2xl bg-[#FAF9F6] dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+                <div className="relative overflow-hidden p-4 rounded-2xl bg-gradient-to-br from-[#90D1BB]/14 via-white to-[#FAF9F6] dark:from-[#90D1BB]/15 dark:via-slate-900 dark:to-slate-950 border border-[#90D1BB]/50 border-l-4 border-l-[#90D1BB] shadow-2xs">
                   <div className="font-bold text-slate-900 dark:text-white mb-1">
                     3. Regulation Before Reasoning
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
                     Butterfly, Balloon, Snail, and 4-7-8 breathing plus Monie&apos;s 5-Senses grounding.
                   </p>
                 </div>
@@ -183,23 +183,35 @@ export default function ProgramsPage() {
 
               {/* Meet the 8 Courage Crew Guides */}
               <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">
-                  Meet the 8 Courage Crew™ Character Guides
-                </h3>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                  {COURAGE_CREW_CHARACTERS.map((char) => (
-                    <div
-                      key={char.name}
-                      className="p-3 rounded-xl bg-[#FAF9F6] dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 text-xs"
-                    >
-                      <div className="font-semibold text-slate-900 dark:text-white">
-                        {char.name}
+                <div className="flex items-center gap-2.5 mb-3">
+                  <span className="h-2 w-8 rounded-full bg-gradient-to-r from-[#84CEE2] via-[#DA8688] via-[#90D1BB] to-[#F2CB6F]" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                    Meet the 8 Courage Crew™ Character Guides
+                  </h3>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  {COURAGE_CREW_CHARACTERS.map((char, idx) => {
+                    const accentColors = ['#84CEE2', '#DA8688', '#90D1BB', '#F2CB6F'];
+                    const accent = accentColors[idx % accentColors.length];
+                    return (
+                      <div
+                        key={char.name}
+                        className="relative overflow-hidden p-3.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-200/90 dark:border-slate-800 shadow-2xs text-xs"
+                        style={{
+                          borderLeftWidth: '4px',
+                          borderLeftColor: accent,
+                          backgroundImage: `linear-gradient(135deg, ${accent}18 0%, transparent 75%)`,
+                        }}
+                      >
+                        <div className="font-bold text-slate-900 dark:text-white">
+                          {char.name}
+                        </div>
+                        <div className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5 leading-snug">
+                          {char.trait}
+                        </div>
                       </div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                        {char.trait}
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             </div>
