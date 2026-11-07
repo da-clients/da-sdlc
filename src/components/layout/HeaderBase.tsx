@@ -231,13 +231,13 @@ export default function HeaderBase() {
           </Link>
         </div>
 
-        {/* Right: Sponsor CTA + Unified Burger Menu Button */}
+        {/* Right: Donations CTA + Unified Burger Menu Button */}
         <div className="flex items-center justify-end gap-3">
           <Link
             href="/donate"
             className="hidden md:inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold bg-[#84CEE2] text-slate-950 hover:opacity-90 shadow-xs transition-all"
           >
-            Sponsor a Box
+            Donations
           </Link>
 
           <button
@@ -278,21 +278,13 @@ export default function HeaderBase() {
               </Link>
             ))}
 
-            <div className="pt-3 space-y-2">
+            <div className="pt-3">
               <Link
                 href="/donate"
                 onClick={() => setMenuOpen(false)}
                 className="block w-full text-center px-5 py-3 rounded-xl text-base font-semibold bg-[#84CEE2] text-slate-950 hover:opacity-95 transition-all shadow-sm"
               >
-                Sponsor a Child In-a-Box
-              </Link>
-
-              <Link
-                href="/contact"
-                onClick={() => setMenuOpen(false)}
-                className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-800 transition-all"
-              >
-                Contact &amp; Volunteer
+                Donations
               </Link>
             </div>
           </nav>

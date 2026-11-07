@@ -12,7 +12,12 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-tight text-slate-900 dark:text-white">
             Empowering Women &amp; Children Through{' '}
-            <span className="text-[#DA8688]">M.E.E.T.</span>
+            <span className="inline-block whitespace-nowrap">
+              <span className="text-[#84CEE2]">M.</span>
+              <span className="text-[#DA8688]">E.</span>
+              <span className="text-[#90D1BB]">E.</span>
+              <span className="text-[#F2CB6F]">T.</span>
+            </span>
           </h1>
           <h2 className="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto font-normal">
             We empower through{' '}
@@ -223,42 +228,81 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. SIMPLIFIED VOLUNTEERING & PARTNERSHIP SECTION */}
+      {/* 6. CAUSE PARTNERSHIPS DISCOVERY BOX (Palesa Pads + Enterprise Partners) */}
       <section className="py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="rounded-3xl p-7 sm:p-9 bg-[#FAF9F6] dark:bg-slate-900/90 border-2 border-[#A4A5C6]/50 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-2 max-w-2xl">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#A4A5C6] text-slate-950">
-              Volunteer &amp; Partner With Us
+        <div className="rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#DA8688]/45 p-6 sm:p-9 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          {/* Palesa Pads Logo Image Up Top on Mobile / Left-Right on Desktop (Matching Practical Programmes Box) */}
+          <div className="lg:col-span-5 order-first lg:order-last">
+            <a
+              href="https://pos.snapscan.io/qr/Kwc3UjHr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block relative h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center p-6"
+              title="Sponsor Palesa Pads via SnapScan"
+            >
+              <img
+                src="/assets/sponsors/palesa-pads-logo.png"
+                alt="Palesa Pads — Washable, reusable sanitary towels"
+                loading="lazy"
+                className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent p-3.5 flex items-center justify-between text-white">
+                <div>
+                  <div className="text-[10px] font-semibold uppercase tracking-wider text-[#DA8688]">
+                    Featured Cause Partner
+                  </div>
+                  <div className="font-serif text-base">Palesa Pads Dignity Drive</div>
+                </div>
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#DA8688] text-slate-950">
+                  R129 / Pack →
+                </span>
+              </div>
+            </a>
+          </div>
+
+          <div className="lg:col-span-7 space-y-4">
+            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#DA8688]/20 text-slate-900 dark:text-[#DA8688]">
+              Cause &amp; Enterprise Partnerships
             </span>
-            <h2 className="font-serif text-2xl sm:text-3xl text-slate-900 dark:text-white">
-              Want to Volunteer Your Skills or Partner With SDLC?
+            <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
+              Want to See What Our Partners Offer?
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              Whether you are an educator, mentor, community volunteer, school principal, or an organisation looking to collaborate on a social impact initiative, we would love to connect with you.
+              We collaborate with purpose-driven South African enterprises and community organisations to multiply our impact. Sponsor a set of 3 washable, reusable{' '}
+              <strong className="text-slate-900 dark:text-white">Palesa Pads</strong> (5-year guarantee) for a schoolgirl for just R129, or explore our broader network of corporate, sports, and municipal partnerships.
             </p>
-          </div>
-          <div className="shrink-0">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-950 shadow-sm hover:opacity-90 transition-all"
-              style={{ backgroundColor: '#A4A5C6' }}
-            >
-              <span>Contact &amp; Volunteer</span>
-              <span aria-hidden="true">→</span>
-            </Link>
+            <div className="pt-2 flex flex-wrap items-center gap-3.5">
+              <a
+                href="https://pos.snapscan.io/qr/Kwc3UjHr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-950 hover:opacity-90 transition-all shadow-sm"
+                style={{ backgroundColor: '#DA8688' }}
+              >
+                <span>Sponsor Palesa Pads (SnapScan)</span>
+                <span aria-hidden="true">→</span>
+              </a>
+              <Link
+                href="/partners"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-slate-900 dark:bg-slate-800 text-white hover:opacity-90 transition-all shadow-sm"
+              >
+                <span>Check Out Our Other Partnerships</span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 7. FINAL DONATION CTA BANNER */}
+      {/* 7. COMBINED PARTNER, VOLUNTEER, OR DONATE CTA BANNER */}
       <NextStepBanner
         stepLabel="Support Registered NPO 301-712"
-        title="Support Our Mission to Empower Women & Children"
-        description="Every contribution helps fund trauma-informed school kits, youth literacy drives, women-led enterprise mentorship, and sanitary dignity packs across KwaZulu-Natal."
+        title="Want to Partner, Volunteer, or Donate?"
+        description="Whether you want to fund trauma-informed school kits and youth literacy drives, volunteer your skills in our communities, or partner with SDLC across KwaZulu-Natal and Johannesburg, we would love to connect."
         primaryHref="/donate"
         primaryLabel="Support Our Mission"
         secondaryHref="/contact"
-        secondaryLabel="Get in Touch"
+        secondaryLabel="Contact & Volunteer"
       />
     </div>
   );
