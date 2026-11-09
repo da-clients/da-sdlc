@@ -132,7 +132,7 @@ export default function PartnersPage() {
                 <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
                   <div className="w-full h-48 rounded-2xl overflow-hidden mb-5 shadow-md border border-slate-200 dark:border-slate-800">
                     <img
-                      src="/assets/inabox/inabox-entrepreneurship.jpg?v=2"
+                      src="/assets/inabox/inabox-education.jpg"
                       alt="SDLC In-a-Box Kits across all 4 M.E.E.T. Pillars"
                       className="w-full h-full object-cover"
                     />

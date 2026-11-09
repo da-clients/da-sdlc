@@ -157,7 +157,7 @@ export const SPONSOR_IN_A_BOX_TIERS: SponsorBoxOption[] = [
     color: "#DA8688",
     title: "Education In-a-Box",
     tagline: "Literacy, Stationery & Foundational Learning Kit",
-    image: "/assets/inabox/inabox-entrepreneurship.jpg?v=2",
+    image: "/assets/inabox/inabox-education.jpg",
     eftReference: "INABOX-EDUCATION",
     impactDescription:
       "Equips an underserved school learner with A4 exercise books, full colour pencil and fibre-tip pen sets, stationery essentials, and reading resources.",
@@ -177,7 +177,7 @@ export const SPONSOR_IN_A_BOX_TIERS: SponsorBoxOption[] = [
     color: "#84CEE2",
     title: "Mental Health In-a-Box",
     tagline: "Nervous System, Breathing & Self-Care Kit",
-    image: "/assets/inabox/inabox-mental-health.jpg?v=2",
+    image: "/assets/inabox/inabox-mental-health.jpg",
     eftReference: "INABOX-MENTAL-HEALTH",
     impactDescription:
       "Provides a vulnerable learner with guided SDLC Breathing Exercises cards, emotional regulation prompts, mindfulness activities, and essential personal care items.",
@@ -197,7 +197,7 @@ export const SPONSOR_IN_A_BOX_TIERS: SponsorBoxOption[] = [
     color: "#90D1BB",
     title: "Entrepreneurship In-a-Box",
     tagline: "Micro-Business Starter & Financial Literacy Kit",
-    image: "/assets/inabox/inabox-entrepreneurship.jpg?v=2",
+    image: "/assets/inabox/inabox-entrepreneurship.jpg",
     eftReference: "INABOX-ENTREPRENEURSHIP",
     impactDescription:
       "Empowers a young person or aspiring female founder with our 'Business Practice' and 'Secure the Bag' financial literacy guides, planning journals, and mentorship tools.",
@@ -217,7 +217,7 @@ export const SPONSOR_IN_A_BOX_TIERS: SponsorBoxOption[] = [
     color: "#F2CB6F",
     title: "Technology In-a-Box",
     tagline: "Digital Literacy, Online Safety & AI Readiness Kit",
-    image: "/assets/inabox/inabox-entrepreneurship.jpg?v=2",
+    image: "/assets/inabox/inabox-entrepreneurship.jpg",
     eftReference: "INABOX-TECHNOLOGY",
     impactDescription:
       "Bridges the digital divide with foundational computing workbooks, cybersecurity and online safety guides, AI literacy prompts, and learner care supplies.",
