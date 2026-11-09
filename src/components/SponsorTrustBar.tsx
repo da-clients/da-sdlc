@@ -11,12 +11,12 @@ export default function SponsorTrustBar() {
             Backed By &amp; Partnered With Institutional, Municipal &amp; Technology Sponsors
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-7 gap-4 items-center">
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 items-center">
           {siteConfig.sponsors.map((s) => {
             const card = (
               <div
                 key={s.name}
-                className={`flex flex-col items-center justify-center p-3.5 rounded-2xl bg-white dark:bg-slate-900 border transition-all h-28 text-center ${
+                className={`flex flex-col items-center justify-center p-3 rounded-2xl bg-white dark:bg-slate-900 border transition-all h-28 text-center ${
                   s.name === 'Digital Architect'
                     ? 'border-[#84CEE2] shadow-xs ring-1 ring-[#84CEE2]/40 hover:border-[#84CEE2]'
                     : 'border-slate-200/80 dark:border-slate-800 hover:border-slate-300'
@@ -35,7 +35,11 @@ export default function SponsorTrustBar() {
                       src={s.logo}
                       alt={s.name}
                       loading="lazy"
-                      className="max-h-12 w-auto object-contain mb-1.5"
+                      className={`max-h-12 max-w-[90%] w-auto object-contain mb-1.5 ${
+                        s.name === 'TNT Creative Solutions'
+                          ? 'bg-black px-1.5 py-1 rounded-md shadow-2xs'
+                          : ''
+                      }`}
                     />
                     <span className="text-[11px] font-medium text-slate-700 dark:text-slate-300 line-clamp-1">
                       {s.name}

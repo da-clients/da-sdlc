@@ -48,10 +48,17 @@ export default function PartnersPage() {
         </div>
       </section>
 
+      {/* Vibrant Rainbow Brand Line */}
+      <div
+        className="h-1.5 sm:h-2 w-full bg-gradient-to-r from-[#ff3b30] via-[#ff9500] via-[#ffcc00] via-[#34c759] via-[#00c7be] via-[#007aff] via-[#5856d6] via-[#af52de] to-[#ff2d55]"
+        aria-hidden="true"
+      />
+
       {/* Core Philosophy: The Win-Win Model */}
       <section className="py-16 bg-slate-50/60 dark:bg-slate-900/30 border-b border-slate-200/80 dark:border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="inline-block h-1 w-20 rounded-full bg-gradient-to-r from-[#ff3b30] via-[#ff9500] via-[#ffcc00] via-[#34c759] via-[#007aff] to-[#af52de] mb-3" />
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
               Why Cause-Driven Enterprise Works
             </h2>
@@ -137,7 +144,7 @@ export default function PartnersPage() {
                     Sponsor a Child with an SDLC In-a-Box
                   </h3>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Starting from R350 per Pillar Box (R550 for Technology Box)
+                    From R350 to R650 across all 4 M.E.E.T. Pillars
                   </p>
                 </div>
 

@@ -54,9 +54,15 @@ export const siteConfig = {
       logo: "/assets/sponsors/buzz-barn.jpg",
     },
     {
+      name: "GTU",
+      role: "Gauteng Tactical Unit • Community Safety Partner",
+      logo: "/assets/sponsors/gauteng-tech.jpg",
+    },
+    {
       name: "TNT Creative Solutions",
       role: "Community Sports & Event Co-Host",
-      logo: "/assets/sponsors/gauteng-tech.jpg",
+      logo: "/assets/sponsors/tnt-creative.jpg",
+      url: "https://tntcreative.co.za",
     },
     {
       name: "Print Centre",
