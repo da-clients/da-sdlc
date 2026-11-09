@@ -38,7 +38,7 @@ export default function PartnersPage() {
                 Explore Partner Initiatives
               </a>
               <Link
-                href="/donate?box=mental-health#in-a-box"
+                href="/donate#in-a-box"
                 className="px-6 py-3 rounded-xl bg-[#84CEE2]/20 dark:bg-slate-900 text-slate-900 dark:text-[#84CEE2] font-bold text-sm border border-[#84CEE2]/60 hover:bg-[#84CEE2]/30 transition-all"
               >
                 Sponsor a Child with an In-a-Box &rarr;
@@ -132,7 +132,7 @@ export default function PartnersPage() {
                 <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
                   <div className="w-full h-48 rounded-2xl overflow-hidden mb-5 shadow-md border border-slate-200 dark:border-slate-800">
                     <img
-                      src="/assets/inabox/inabox-education.jpg"
+                      src="/assets/inabox/inabox-entrepreneurship.jpg?v=2"
                       alt="SDLC In-a-Box Kits across all 4 M.E.E.T. Pillars"
                       className="w-full h-full object-cover"
                     />
@@ -185,7 +185,7 @@ export default function PartnersPage() {
 
                   <div className="flex flex-wrap items-center gap-4 pt-2">
                     <Link
-                      href="/donate?box=mental-health#in-a-box"
+                      href="/donate#in-a-box"
                       className="px-6 py-3 rounded-xl bg-[#84CEE2] text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-xs"
                     >
                       Sponsor an In-a-Box on Our Donation Page &rarr;
@@ -412,7 +412,7 @@ export default function PartnersPage() {
               Get in Touch with Our Executive Team
             </Link>
             <Link
-              href="/donate?box=mental-health#in-a-box"
+              href="/donate#in-a-box"
               className="px-8 py-3.5 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold text-sm border border-slate-300 dark:border-slate-700 hover:bg-slate-50 transition-all"
             >
               Sponsor an In-a-Box Kit Directly
