@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site.config';
 import { SPONSOR_IN_A_BOX_TIERS, SponsorBoxOption } from '@/data/sdlcData';
@@ -13,6 +13,9 @@ export default function DonatePage() {
     SPONSOR_IN_A_BOX_TIERS[0]
   );
   const [highlightInABox, setHighlightInABox] = useState<boolean>(false);
+  const [expandedBoxIds, setExpandedBoxIds] = useState<Record<string, boolean>>({});
+
+  const paymentActionRef = useRef<HTMLDivElement>(null);
 
   // Detect ?box=<pillarId> or #in-a-box from URL on mount so deep-links from /pillars and /partners
   // pre-select the exact In-a-Box option and highlight the In-a-Box section
@@ -49,6 +52,22 @@ export default function DonatePage() {
     setTimeout(() => setCopiedField(null), 2200);
   };
 
+  const toggleExpandBox = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setExpandedBoxIds((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const handleSelectBox = (box: SponsorBoxOption) => {
+    setSelectedBox(box);
+    // Smoothly scroll down to the payment action panel so user can immediately purchase
+    setTimeout(() => {
+      paymentActionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 80);
+  };
+
   const whatsappNotificationUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
     `Hi Simonia! I have made a contribution to SDLC (NPO 301-712) towards the ${selectedBox.title} (R${selectedBox.amountZAR} / Ref: ${selectedBox.eftReference}). Please find our details / Proof of Payment attached!`
   )}`;
@@ -79,10 +98,10 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* 2. TOP SECTION: SDLC IN-A-BOX SELECTOR + COMPACT SCAN VIA SNAPSCAN */}
+      {/* 2. TOP SECTION: SDLC IN-A-BOX SELECTOR + COMPACT PAYMENT ACTION (SNAPSCAN + EFT) */}
       <section
         id="in-a-box"
-        className="scroll-mt-24 py-14 sm:py-18 px-4 sm:px-6 lg:px-8 bg-slate-50/70 dark:bg-slate-900/40 border-b border-slate-200/80 dark:border-slate-800"
+        className="scroll-mt-24 py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-slate-50/70 dark:bg-slate-900/40 border-b border-slate-200/80 dark:border-slate-800"
       >
         <div className="max-w-7xl mx-auto space-y-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -94,15 +113,15 @@ export default function DonatePage() {
                 Sponsor a Child with an SDLC In-a-Box
               </h2>
               <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-1">
-                Each M.E.E.T. pillar has its own curated box containing tangible learning, wellness, enterprise, or digital literacy supplies. Select a pillar box below to view its contents and donate via SnapScan or EFT:
+                Select a pillar box below to sponsor a child. Selecting an option automatically scrolls to the payment buttons:
               </p>
             </div>
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400">
-              <span>Or donate any custom amount via SnapScan / EFT below</span>
+              <span>Or make a general donation via SnapScan or EFT below</span>
             </div>
           </div>
 
-          {/* Grid: 4 Pillar In-a-Box Options (Left 8 cols) + Selected Box & Compact SnapScan Card (Right 4 cols) */}
+          {/* Grid: 4 Pillar In-a-Box Options (Left 8 cols) + Selected Box & Payment Action Card (Right 4 cols) */}
           <div
             className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-start rounded-3xl transition-all duration-500 ${
               highlightInABox
@@ -114,11 +133,12 @@ export default function DonatePage() {
             <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {SPONSOR_IN_A_BOX_TIERS.map((box) => {
                 const isSelected = selectedBox.id === box.id;
+                const isExpanded = !!expandedBoxIds[box.id];
+
                 return (
-                  <button
+                  <div
                     key={box.id}
-                    type="button"
-                    onClick={() => setSelectedBox(box)}
+                    onClick={() => handleSelectBox(box)}
                     className={`group text-left rounded-3xl overflow-hidden bg-white dark:bg-slate-900 border-2 transition-all cursor-pointer flex flex-col justify-between shadow-xs hover:shadow-md ${
                       isSelected
                         ? 'ring-3 ring-offset-2 ring-offset-white dark:ring-offset-slate-950 scale-[1.01]'
@@ -131,7 +151,7 @@ export default function DonatePage() {
                   >
                     <div>
                       {/* Box Photo Header */}
-                      <div className="relative h-40 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
+                      <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-slate-100 dark:bg-slate-800">
                         <img
                           src={box.image}
                           alt={box.title}
@@ -146,7 +166,7 @@ export default function DonatePage() {
                         >
                           {box.pillar} Pillar
                         </span>
-                        <span className="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-white text-slate-950 font-extrabold text-sm shadow-sm">
+                        <span className="absolute bottom-3 right-3 px-3.5 py-1 rounded-full bg-white text-slate-950 font-extrabold text-sm sm:text-base shadow-sm">
                           R{box.amountZAR} / Box
                         </span>
                         {isSelected && (
@@ -156,60 +176,85 @@ export default function DonatePage() {
                         )}
                       </div>
 
-                      {/* Box Title, Description & Kit Items */}
-                      <div className="p-5 space-y-3">
+                      {/* Box Title, Tagline & Expandable Description */}
+                      <div className="p-4 sm:p-5 space-y-2.5">
                         <div>
-                          <h3 className="font-serif text-xl font-bold text-slate-900 dark:text-white">
+                          <h3 className="font-serif text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-snug">
                             {box.title}
                           </h3>
-                          <p className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                          <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
                             {box.tagline}
                           </p>
                         </div>
 
-                        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                          {box.impactDescription}
-                        </p>
+                        {/* "Show More" / "Show Less" Toggle for Description & Kit Items */}
+                        <div className="pt-1">
+                          <button
+                            type="button"
+                            onClick={(e) => toggleExpandBox(box.id, e)}
+                            className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 dark:text-[#84CEE2] hover:underline cursor-pointer"
+                          >
+                            <span>
+                              {isExpanded
+                                ? 'Hide description & kit items ▲'
+                                : 'Show more (description & items) ▼'}
+                            </span>
+                          </button>
+                        </div>
 
-                        <ul className="space-y-1.5 pt-1 border-t border-slate-100 dark:border-slate-800">
-                          {box.kitItems.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-start gap-2 text-[11px] text-slate-700 dark:text-slate-300"
-                            >
-                              <span
-                                className="w-2 h-2 rounded-full shrink-0 mt-1"
-                                style={{ backgroundColor: box.color }}
-                              />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        {/* Collapsible Details */}
+                        {isExpanded && (
+                          <div className="pt-2 space-y-2.5 border-t border-slate-100 dark:border-slate-800 animate-fade-in">
+                            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                              {box.impactDescription}
+                            </p>
+
+                            <ul className="space-y-1.5 pt-1">
+                              {box.kitItems.map((item) => (
+                                <li
+                                  key={item}
+                                  className="flex items-start gap-2 text-[11px] text-slate-700 dark:text-slate-300"
+                                >
+                                  <span
+                                    className="w-2 h-2 rounded-full shrink-0 mt-1"
+                                    style={{ backgroundColor: box.color }}
+                                  />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
                       </div>
                     </div>
 
-                    <div className="px-5 pb-4 pt-1">
+                    {/* Card Action Selection Bar */}
+                    <div className="px-4 sm:px-5 pb-4 pt-1">
                       <div
-                        className="w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-center transition-all"
+                        className="w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-center transition-all shadow-xs"
                         style={{
                           backgroundColor: isSelected ? box.color : undefined,
                           color: isSelected ? '#0f172a' : undefined,
                         }}
                       >
                         {isSelected
-                          ? `Selected: ${box.title} (R${box.amountZAR})`
+                          ? `Selected: R${box.amountZAR} (Scroll to donate ↓)`
                           : `Select ${box.title} — R${box.amountZAR}`}
                       </div>
                     </div>
-                  </button>
+                  </div>
                 );
               })}
             </div>
 
-            {/* Right 4 Columns: Compact "Scan via SnapScan" Paired Directly With Selected In-a-Box */}
-            <div className="lg:col-span-4 lg:sticky lg:top-24">
+            {/* Right 4 Columns: Compact Payment Action (SnapScan + EFT) */}
+            <div
+              id="payment-action"
+              ref={paymentActionRef}
+              className="lg:col-span-4 lg:sticky lg:top-24 scroll-mt-24 w-full"
+            >
               <div
-                className="rounded-3xl bg-white dark:bg-slate-900 border-2 p-6 shadow-md space-y-5"
+                className="rounded-3xl bg-white dark:bg-slate-900 border-2 p-5 sm:p-6 shadow-md space-y-5"
                 style={{ borderColor: selectedBox.color }}
               >
                 {/* Selected In-a-Box Summary Header */}
@@ -222,7 +267,7 @@ export default function DonatePage() {
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-                      Selected In-a-Box Option
+                      Selected In-a-Box
                     </span>
                     <span
                       className="px-2.5 py-0.5 rounded-full text-xs font-extrabold text-slate-950"
@@ -231,56 +276,66 @@ export default function DonatePage() {
                       R{selectedBox.amountZAR}
                     </span>
                   </div>
-                  <div className="font-serif text-xl font-bold text-slate-900 dark:text-white mt-1">
+                  <div className="font-serif text-lg sm:text-xl font-bold text-slate-900 dark:text-white mt-1">
                     {selectedBox.title}
                   </div>
                   <div className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
-                    EFT / Payment Ref:{' '}
+                    Payment / EFT Ref:{' '}
                     <span className="font-mono font-bold text-slate-900 dark:text-white">
                       {selectedBox.eftReference}
                     </span>
                   </div>
                 </div>
 
-                {/* Compact Scan via SnapScan Block */}
+                {/* Instant Giving Actions */}
                 <div className="text-center space-y-4">
                   <div>
                     <span className="text-[11px] font-bold uppercase tracking-widest text-[#DA8688]">
-                      Instant Mobile &amp; Card Giving
+                      Ready to Complete
                     </span>
                     <h3 className="text-xl font-extrabold text-slate-900 dark:text-white mt-0.5">
-                      Scan via SnapScan
+                      Donate R{selectedBox.amountZAR} Now
                     </h3>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                      Sponsor your selected <strong>{selectedBox.title} (R{selectedBox.amountZAR})</strong> or any custom amount instantly via SnapScan:
+                      Choose your preferred payment method below:
                     </p>
                   </div>
 
-                  <div className="mx-auto w-36 h-36 rounded-2xl bg-sky-50 dark:bg-slate-800 p-3 border-2 border-dashed border-sky-300 dark:border-slate-700 flex flex-col items-center justify-center">
-                    <svg className="w-12 h-12 text-sky-600 dark:text-[#84CEE2] mb-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {/* QR Code Container */}
+                  <div className="mx-auto w-32 h-32 rounded-2xl bg-sky-50 dark:bg-slate-800 p-2.5 border-2 border-dashed border-sky-300 dark:border-slate-700 flex flex-col items-center justify-center">
+                    <svg className="w-10 h-10 text-sky-600 dark:text-[#84CEE2] mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
                     </svg>
                     <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
-                      Tap Below to Open SnapScan
+                      SnapScan QR
                     </span>
                   </div>
 
+                  {/* Primary Action: SnapScan Instant Button */}
                   <a
                     href={siteConfig.banking.snapScanUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full py-3.5 px-5 rounded-xl font-extrabold text-sm text-slate-950 transition-all shadow-sm hover:opacity-95"
+                    className="block w-full py-3.5 px-4 rounded-xl font-extrabold text-xs sm:text-sm text-slate-950 transition-all shadow-sm hover:opacity-95"
                     style={{ backgroundColor: selectedBox.color }}
                   >
                     Donate R{selectedBox.amountZAR} via SnapScan &rarr;
                   </a>
 
-                  <a
-                    href="#bank-details"
-                    className="inline-block text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline underline-offset-4"
+                  {/* Secondary Action: Direct EFT Button */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      document.getElementById('bank-details')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="block w-full py-3 px-4 rounded-xl font-bold text-xs sm:text-sm bg-slate-900 text-white dark:bg-white dark:text-slate-950 transition-all shadow-sm hover:opacity-90 cursor-pointer"
                   >
-                    Prefer Direct Bank Transfer (EFT)? View Details Below ↓
-                  </a>
+                    Donate via EFT (Bank Transfer) ↓
+                  </button>
+
+                  <p className="text-[11px] text-slate-400 mt-2">
+                    Secured by SnapScan &amp; Standard Bank South Africa.
+                  </p>
                 </div>
               </div>
             </div>

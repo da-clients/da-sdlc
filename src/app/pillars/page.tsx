@@ -65,34 +65,47 @@ export default function PillarsPage() {
             <section
               key={pillar.id}
               id={pillar.id}
-              className="scroll-mt-40 rounded-3xl bg-white dark:bg-slate-900 border-2 p-7 sm:p-10 shadow-sm space-y-8"
+              className="scroll-mt-40 rounded-3xl bg-white dark:bg-slate-900 border-2 p-5 sm:p-8 md:p-10 shadow-sm space-y-8"
               style={{ borderColor: pillar.borderSoft }}
             >
-              {/* Pillar Header */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
-                <div className="flex items-center gap-4">
-                  <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center font-serif text-3xl font-bold text-slate-950 shadow-sm shrink-0"
+              {/* Asymmetric Modern Pillar Header: Separates Badge, Meta, Title & Subtitle so text never stacks vertically */}
+              <div className="border-b border-slate-100 dark:border-slate-800 pb-6 space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="inline-flex items-center gap-3">
+                    <div
+                      className="w-11 h-11 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center font-serif text-2xl sm:text-3xl font-bold text-slate-950 shadow-xs shrink-0"
+                      style={{ backgroundColor: pillar.color }}
+                    >
+                      {pillar.letter}
+                    </div>
+                    <div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                        Pillar 0{index + 1}
+                      </div>
+                      <div className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                        M.E.E.T. Framework
+                      </div>
+                    </div>
+                  </div>
+
+                  <Link
+                    href={`/donate?box=${pillar.id}#in-a-box`}
+                    className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold text-slate-950 shadow-xs hover:opacity-90 transition-all shrink-0"
                     style={{ backgroundColor: pillar.color }}
                   >
-                    {pillar.letter}
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-widest text-slate-400">
-                      Pillar 0{index + 1} • Official Framework Colour
-                    </div>
-                    <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
-                      {pillar.title} — {pillar.subtitle}
-                    </h2>
-                  </div>
+                    Sponsor {pillar.title} In-a-Box →
+                  </Link>
                 </div>
-                <Link
-                  href={`/donate?box=${pillar.id}#in-a-box`}
-                  className="self-start sm:self-center px-5 py-2.5 rounded-full text-xs font-bold text-slate-950 shadow-xs hover:opacity-90 transition-all shrink-0"
-                  style={{ backgroundColor: pillar.color }}
-                >
-                  Sponsor {pillar.title} In-a-Box →
-                </Link>
+
+                {/* Full-width Title & Subtitle for horizontal, spacious reading on all devices */}
+                <div className="pt-1">
+                  <h2 className="font-serif text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+                    {pillar.title}
+                  </h2>
+                  <p className="font-serif text-base sm:text-xl text-slate-600 dark:text-slate-300 mt-1 italic leading-snug">
+                    {pillar.subtitle}
+                  </p>
+                </div>
               </div>
 
               {/* Data Stat Banner */}
@@ -152,7 +165,7 @@ export default function PillarsPage() {
                     className="h-1.5 w-full"
                     style={{ backgroundColor: pillar.color }}
                   />
-                  <div className="p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
+                  <div className="p-5 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center">
                     {/* Left: Authentic In-a-Box Photograph */}
                     <div className="lg:col-span-5">
                       <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
@@ -383,7 +396,7 @@ export default function PillarsPage() {
         {/* 5th Section: Corporate & CSI / Social Impact Partnerships */}
         <section
           id="csi-partnerships"
-          className="scroll-mt-40 rounded-3xl bg-white dark:bg-slate-900 border-2 p-7 sm:p-10 shadow-sm space-y-6"
+          className="scroll-mt-40 rounded-3xl bg-white dark:bg-slate-900 border-2 p-5 sm:p-8 md:p-10 shadow-sm space-y-6"
           style={{ borderColor: CSI_PARTNERSHIP_TRACK.borderSoft }}
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
