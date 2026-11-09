@@ -134,12 +134,15 @@ export const MEET_PILLARS: PillarItem[] = [
 
 export interface SponsorBoxOption {
   id: string;
+  pillarId: "mental-health" | "education" | "entrepreneurship" | "technology";
   pillar: string;
   letter: string;
   amountZAR: number;
   color: string;
   title: string;
   tagline: string;
+  image: string;
+  eftReference: string;
   impactDescription: string;
   kitItems: string[];
 }
@@ -147,87 +150,82 @@ export interface SponsorBoxOption {
 export const SPONSOR_IN_A_BOX_TIERS: SponsorBoxOption[] = [
   {
     id: "box-mental-health",
+    pillarId: "mental-health",
     pillar: "Mental Health",
     letter: "M",
     amountZAR: 350,
     color: "#84CEE2",
     title: "Mental Health In-a-Box",
-    tagline: "Nervous System & Emotional Regulation Kit",
+    tagline: "Nervous System, Breathing & Self-Care Kit",
+    image: "/assets/inabox/inabox-mental-health.jpg",
+    eftReference: "INABOX-MENTAL-HEALTH",
     impactDescription:
-      "Provides one primary school learner with somatic grounding tools, emotion-regulation journals, and interactive Courage Crew™ character prompt cards.",
+      "Provides a vulnerable learner with guided SDLC Breathing Exercises cards, emotional regulation prompts, mindfulness activities, and essential personal care items.",
     kitItems: [
-      "SDLC Courage Crew™ Workbook",
-      "Somatic Heart-Chest Grounding Card Set",
-      "Sensory Calming & Breathing Balloon Tool",
-      "Personal Reflection & Safe-Care Journal",
+      "SDLC Breathing Exercises & Somatic Grounding Card",
+      "Mindfulness Colouring & Personal Reflection Tools",
+      "Essential Hygiene & Self-Care Pack (Soap, Lotion, Toothbrush, Sanitary Care)",
+      "Courage Crew™ Emotional Wellbeing Guide",
     ],
   },
   {
     id: "box-education",
+    pillarId: "education",
     pillar: "Education",
     letter: "E",
     amountZAR: 350,
     color: "#DA8688",
     title: "Education In-a-Box",
-    tagline: "Literacy & Foundational Learning Kit",
+    tagline: "Literacy, Stationery & Foundational Learning Kit",
+    image: "/assets/inabox/inabox-education.jpg",
+    eftReference: "INABOX-EDUCATION",
     impactDescription:
-      "Equips an underserved learner or young mother with core literacy books, essential stationery, and personal leadership guides.",
+      "Equips an underserved school learner with A4 exercise books, full colour pencil and fibre-tip pen sets, stationery essentials, and reading resources.",
     kitItems: [
-      "Curated South African Storybook / Reader",
-      "Complete School Stationery & Pencil Pack",
-      "Personal Goal-Setting & Leadership Planner",
-      "Maths & Reading Practice Activity Sheets",
+      "A4 College Exercise Books & Reading Workbooks",
+      "Complete Colour Pencils, Fibre-Tip Pens & Glue Stick Set",
+      "Erasers, Rulers & Daily Classroom Stationery Pack",
+      "Personal Goal-Setting & Literacy Activity Prompts",
     ],
   },
   {
     id: "box-entrepreneurship",
+    pillarId: "entrepreneurship",
     pillar: "Entrepreneurship",
     letter: "E",
     amountZAR: 350,
     color: "#90D1BB",
     title: "Entrepreneurship In-a-Box",
-    tagline: "Micro-Business Starter & Financial Literacy",
+    tagline: "Micro-Business Starter & Financial Literacy Kit",
+    image: "/assets/inabox/inabox-entrepreneurship.jpg",
+    eftReference: "INABOX-ENTREPRENEURSHIP",
     impactDescription:
-      "Enables a young person or aspiring female entrepreneur to formulate their business concept, manage basic bookkeeping, and build financial autonomy.",
+      "Empowers a young person or aspiring female founder with our 'Business Practice' and 'Secure the Bag' financial literacy guides, planning journals, and mentorship tools.",
     kitItems: [
-      "Micro-Enterprise Step-by-Step Canvas",
-      "Cash Flow & Budgeting Ledger Book",
-      "Customer Pitch & Branding Guide",
-      "Pricing & Market Strategy Toolkit",
+      "SDLC 'Secure the Bag' Financial Literacy & Sources of Income Guide",
+      "'Business Practice' Micro-Enterprise Starter Workbook",
+      "Budgeting, Pricing & Goal-Planning Journal",
+      "Official Stamped SDLC Skills & Learning Resource Kit",
     ],
   },
   {
     id: "box-technology",
+    pillarId: "technology",
     pillar: "Technology",
     letter: "T",
     amountZAR: 550,
     color: "#F2CB6F",
     title: "Technology In-a-Box",
-    tagline: "Digital Literacy & AI Readiness Kit",
+    tagline: "Digital Literacy, Online Safety & AI Readiness Kit",
+    image: "/assets/inabox/inabox-technology.jpg",
+    eftReference: "INABOX-TECHNOLOGY",
     impactDescription:
-      "Bridges the digital divide with foundational computing guides, online cybersecurity safety prompts, and subsidized educational connectivity.",
+      "Bridges the digital divide with foundational computing workbooks, cybersecurity and online safety guides, AI literacy prompts, and learner care supplies.",
     kitItems: [
-      "Foundational Digital Skills & AI Guide",
-      "Online Safety, Scams & Cyber-Awareness Handbook",
-      "Offline Computing Logic Workbook",
-      "Educational Data Connectivity Support",
-    ],
-  },
-  {
-    id: "box-full-term",
-    pillar: "All 4 Pillars",
-    letter: "M.E.E.T.",
-    amountZAR: 1400,
-    color: "#A4A5C6",
-    title: "Full M.E.E.T. Empowerment Box",
-    tagline: "Comprehensive Full-Term Child Transformation",
-    impactDescription:
-      "Sponsors a vulnerable learner across all 4 developmental pillars for an entire school term, integrating emotional, educational, enterprise, and digital backing.",
-    kitItems: [
-      "All 4 Individual In-a-Box Kits Combined",
-      "Full Courage Crew™ Term Access & Teacher Check-ins",
-      "Community Wellness & Literacy Support Participation",
-      "Personalized Impact Progress Update for the Sponsor",
+      "Foundational Digital Skills & Responsible AI Literacy Guide",
+      "Online Safety, Cyber-Awareness & Scam Prevention Handbook",
+      "Offline Computing Logic Workbook & Stationery Set",
+      "Complete Learner Wellness & Educational Support Pack",
     ],
   },
 ];

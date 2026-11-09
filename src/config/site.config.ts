@@ -4,7 +4,7 @@ export const siteConfig = {
   npoNumber: "NPO 301-712",
   tagline: "Empowering Women & Children Through M.E.E.T. — Mental Health, Education, Entrepreneurship & Technology.",
   domain: "https://da-sdlc.vercel.app",
-  email: "sdlc.npo@gmail.com",
+  email: "Info@sdlc.org.za",
   phoneDisplay: "074 044 4098",
   phoneAltDisplay: "+27 74 044 4098",
   whatsappNumber: "27740444098",

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { siteConfig } from '@/config/site.config';
-import { CAUSE_ENTERPRISE_PARTNERSHIPS } from '@/data/sdlcData';
+import { SPONSOR_IN_A_BOX_TIERS } from '@/data/sdlcData';
 import SponsorTrustBar from '@/components/SponsorTrustBar';
 
 export const metadata = {
@@ -22,7 +22,7 @@ export default function PartnersPage() {
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
               Partnerships Where <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-teal-600 to-rose-600 dark:from-[#84CEE2] dark:via-[#90D1BB] dark:to-[#DA8688]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#84CEE2] via-[#DA8688] via-[#90D1BB] to-[#F2CB6F]">
                 Every Purchase Creates Impact
               </span>
             </h1>
@@ -38,18 +38,15 @@ export default function PartnersPage() {
                 Explore Partner Initiatives
               </a>
               <Link
-                href="/donate"
-                className="px-6 py-3 rounded-xl bg-sky-50 dark:bg-slate-900 text-sky-800 dark:text-[#84CEE2] font-semibold text-sm border border-sky-200/80 dark:border-slate-800 hover:bg-sky-100/60 transition-all"
+                href="/donate?box=mental-health#in-a-box"
+                className="px-6 py-3 rounded-xl bg-[#84CEE2]/20 dark:bg-slate-900 text-slate-900 dark:text-[#84CEE2] font-bold text-sm border border-[#84CEE2]/60 hover:bg-[#84CEE2]/30 transition-all"
               >
-                Looking to Sponsor a Child In-a-Box Instead?
+                Sponsor a Child with an In-a-Box &rarr;
               </Link>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Trust Bar */}
-      <SponsorTrustBar />
 
       {/* Core Philosophy: The Win-Win Model */}
       <section className="py-16 bg-slate-50/60 dark:bg-slate-900/30 border-b border-slate-200/80 dark:border-slate-800">
@@ -72,7 +69,7 @@ export default function PartnersPage() {
                 Essential Care for Learners
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Items like Palesa washable sanitary towels provide 5 continuous years of reliable protection, supporting uninterrupted school attendance.
+                Items like our SDLC In-a-Box toolkits and Palesa washable sanitary towels provide practical, lasting support for uninterrupted school attendance.
               </p>
             </div>
 
@@ -108,18 +105,96 @@ export default function PartnersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-14">
             <span className="text-xs font-bold tracking-widest text-[#2c8fa8] dark:text-[#84CEE2] uppercase">
-              Current Collaborations
+              Current Collaborations &amp; Sponsorship Frameworks
             </span>
             <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
-              Featured Enterprise Initiatives
+              Featured Enterprise &amp; Sponsorship Initiatives
             </h2>
             <p className="mt-4 text-slate-600 dark:text-slate-400">
-              Explore how our current commercial and community collaborations translate into verified frontline impact.
+              Explore how our flagship In-a-Box kits, Palesa Pads partnership, and community collaborations translate into verified frontline impact.
             </p>
           </div>
 
           <div className="space-y-12">
-            {/* Initiative 1: Palesa Pads */}
+            {/* Initiative 1: SDLC In-a-Box Child Sponsorship Framework */}
+            <div
+              id="in-a-box-partner"
+              className="scroll-mt-28 p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#84CEE2]/70 hover:border-[#84CEE2] transition-all shadow-sm"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
+                  <div className="w-full h-48 rounded-2xl overflow-hidden mb-5 shadow-md border border-slate-200 dark:border-slate-800">
+                    <img
+                      src="/assets/inabox/inabox-education.jpg"
+                      alt="SDLC In-a-Box Kits across all 4 M.E.E.T. Pillars"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-[#84CEE2]/20 text-slate-900 dark:text-[#84CEE2] mb-2">
+                    Core SDLC Framework &bull; 4 M.E.E.T. Pillars
+                  </span>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                    Sponsor a Child with an SDLC In-a-Box
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Starting from R350 per Pillar Box (R550 for Technology Box)
+                  </p>
+                </div>
+
+                <div className="lg:col-span-8 space-y-6">
+                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                    Our signature <strong>SDLC In-a-Box</strong> initiative equips vulnerable children and youth with physical, pillar-specific empowerment kits. Each of our four M.E.E.T. pillars has its own curated box containing breathing and emotional regulation tools, school stationery, entrepreneurship guides, or digital literacy workbooks.
+                  </p>
+
+                  {/* 4 Pillar Box Quick Links */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    {SPONSOR_IN_A_BOX_TIERS.map((box) => (
+                      <Link
+                        key={box.id}
+                        href={`/donate?box=${box.pillarId}#in-a-box`}
+                        className="group p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-all flex items-center justify-between gap-3"
+                        style={{
+                          borderLeftWidth: '4px',
+                          borderLeftColor: box.color,
+                        }}
+                      >
+                        <div>
+                          <div className="text-xs font-extrabold text-slate-900 dark:text-white group-hover:underline">
+                            {box.title}
+                          </div>
+                          <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                            {box.tagline}
+                          </div>
+                        </div>
+                        <span
+                          className="px-3 py-1 rounded-full text-xs font-extrabold text-slate-950 shrink-0"
+                          style={{ backgroundColor: box.color }}
+                        >
+                          R{box.amountZAR} &rarr;
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-4 pt-2">
+                    <Link
+                      href="/donate?box=mental-health#in-a-box"
+                      className="px-6 py-3 rounded-xl bg-[#84CEE2] text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-xs"
+                    >
+                      Sponsor an In-a-Box on Our Donation Page &rarr;
+                    </Link>
+                    <Link
+                      href="/pillars"
+                      className="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold text-sm hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
+                    >
+                      Explore All 4 M.E.E.T. Pillars
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Initiative 2: Palesa Pads */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border-2 border-slate-200/80 dark:border-slate-800 hover:border-[#DA8688]/60 transition-all shadow-sm">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -186,7 +261,7 @@ export default function PartnersPage() {
               </div>
             </div>
 
-            {/* Initiative 2: Padel 365 & Sports Tournaments */}
+            {/* Initiative 3: Padel 365 & Sports Tournaments */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border-2 border-slate-200/80 dark:border-slate-800 hover:border-[#90D1BB]/60 transition-all shadow-sm">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -251,7 +326,7 @@ export default function PartnersPage() {
               </div>
             </div>
 
-            {/* Initiative 3: Corporate CSI */}
+            {/* Initiative 4: Corporate CSI */}
             <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-slate-900 border-2 border-slate-200/80 dark:border-slate-800 hover:border-[#84CEE2]/60 transition-all shadow-sm">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
@@ -330,7 +405,7 @@ export default function PartnersPage() {
               Get in Touch with Our Executive Team
             </Link>
             <Link
-              href="/donate"
+              href="/donate?box=mental-health#in-a-box"
               className="px-8 py-3.5 rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-semibold text-sm border border-slate-300 dark:border-slate-700 hover:bg-slate-50 transition-all"
             >
               Sponsor an In-a-Box Kit Directly
@@ -338,6 +413,9 @@ export default function PartnersPage() {
           </div>
         </div>
       </section>
+
+      {/* Sponsors & Institutional Partners Trust Bar */}
+      <SponsorTrustBar />
     </div>
   );
 }

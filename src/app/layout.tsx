@@ -41,7 +41,7 @@ const npoSchema = {
   nonprofitStatus: 'Registered South African NPO 301-712',
   url: 'https://www.sdlc.org.za',
   logo: 'https://www.sdlc.org.za/assets/sdlc-logo-transparent.png',
-  email: 'info@sdlc.org.za',
+  email: 'Info@sdlc.org.za',
   telephone: '+27-74-044-4098',
   founder: {
     '@type': 'Person',
