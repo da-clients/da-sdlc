@@ -11,8 +11,9 @@
   - **Simonia Buys Marimuthoo** (Founder)
   - **Nicole Naidoo** (Board Member — Oprah Winfrey Leadership Academy for Girls alumna, BSc Biomedical Engineering, Neurosequential Model specialist)
   - **Deandre Vanmali** (Board Member — BCom Informatics Honours scholar)
-- **Contact Email:** info@sdlc.org.za
+- **Contact Email:** Info@sdlc.org.za
 - **Phone / WhatsApp:** +27 74 044 4098 / +27 82 884 1216
+- **SnapScan Donation Link:** https://pos.snapscan.io/qr/Kwc3UjHr
 - **Official Digital & Web Architecture Sponsor:** Digital Architect (https://www.digitalarchitectagency.co.za)
 
 ## The 4 M.E.E.T. Pillars (Plus Corporate CSI Track)
@@ -21,6 +22,13 @@
 3. **E — Entrepreneurship (Mint Green `#90D1BB`):** Business & enterprise development, mentorship, and Youth Economic Development partnerships (closing the gap where only 6.2% of South African women start businesses).
 4. **T — Technology (Gold Yellow `#F2CB6F`):** Digital literacy workbooks, responsible AI awareness, online safety & scam prevention (closing the 47% vs 58% gender internet gap in SA).
 5. **Corporate & CSI Partnerships (Lavender `#A4A5C6`):** Custom-designed corporate social investment programmes with verifiable community impact reporting.
+
+## Sponsor an In-a-Box Toolkit (Official Pricing Tiers)
+- **Education In-a-Box (R350 / kit — EFT Ref: `INABOX-EDUCATION`):** Equips an underserved school learner with A4 college exercise books, full colour pencils, pens, geometry sets, and literacy activity prompts.
+- **Mental Health In-a-Box (R450 / kit — EFT Ref: `INABOX-MENTAL-HEALTH`):** Somatic grounding cards, guided breathing exercises, mindfulness reflection books, hygiene essentials, and the Courage Crew™ wellbeing guide.
+- **Entrepreneurship In-a-Box (R500 / kit — EFT Ref: `INABOX-ENTREPRENEURSHIP`):** "Secure the Bag" financial literacy guide, "Business Practice" workbook, pricing/budgeting journal, and mentorship resources for young aspiring founders.
+- **Technology In-a-Box (R650 / kit — EFT Ref: `INABOX-TECHNOLOGY`):** Digital literacy workbooks, responsible AI readiness guide, cybersecurity handbook, offline logic puzzles, and complete learner support pack.
+- **Palesa Pads Reusable Sanitary Towel Sponsorship:** Direct sponsorship via SnapScan (`https://pos.snapscan.io/qr/Kwc3UjHr`) for 5-year guaranteed reusable sanitary pads made in South Africa.
 
 ## Official NPO Banking Details (For Direct EFT & Corporate CSI)
 - **Bank:** Standard Bank
@@ -35,7 +43,13 @@
 - [Our Mission, Vision & Approach](https://www.sdlc.org.za/about)
 - [Founder & The Board of Directors](https://www.sdlc.org.za/leadership)
 - [The 4 M.E.E.T. Pillars & SDLC Courage Crew](https://www.sdlc.org.za/pillars)
+- [Community Programmes & Initiatives](https://www.sdlc.org.za/programs)
 - [2026 Impact Timeline & Outreach Gallery](https://www.sdlc.org.za/gallery)
-- [Partner & Donate (Corporate CSI & EFT)](https://www.sdlc.org.za/donate)
+- [Cause & Enterprise Partnerships](https://www.sdlc.org.za/partners)
+- [Partner & Donate (In-a-Box & CSI)](https://www.sdlc.org.za/donate)
+- [Official Organisation Profile](https://www.sdlc.org.za/organisation)
 - [Contact & Volunteer With Us](https://www.sdlc.org.za/contact)
+- [Community Rules of Engagement](https://www.sdlc.org.za/rules-of-engagement)
+- [POPIA Privacy & Child Protection Policy](https://www.sdlc.org.za/privacy)
+- [NPO Governance & Website Terms](https://www.sdlc.org.za/terms)
 - [Full Machine-Readable Context](https://www.sdlc.org.za/llms-full.txt)
