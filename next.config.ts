@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  trailingSlash: false,
+  trailingSlash: true,
   experimental: {
     cpus: 1,
     staticGenerationMaxConcurrency: 1,

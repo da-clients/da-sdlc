@@ -2,12 +2,14 @@
 DirectoryIndex index.html
 ErrorDocument 404 /404.html
 
-# 1. Clean URL Routing for Static Next.js Exports (.html resolution)
+# 1. Trailing slash and clean routing for Next.js static directories
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.*)$ $1.html [L]
+  RewriteBase /
+
+  # Redirect non-trailing-slash directories to trailing slash smoothly
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*[^/])$ /$1/ [L,R=301]
 </IfModule>
 
 # 2. Gzip Deflate Compression
@@ -17,7 +19,7 @@ ErrorDocument 404 /404.html
 
 # 3. HTTP Response Headers: Security & Caching
 <IfModule mod_headers.c>
-  # Essential Pre-cPanel Security Headers
+  # Essential Security Headers
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
