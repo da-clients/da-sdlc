@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "audit": "node scripts/audit_preflight.cjs"
   },
   "dependencies": {
     "lucide-react": "^1.39.0",

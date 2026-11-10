@@ -228,59 +228,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. CAUSE PARTNERSHIPS DISCOVERY BOX (Palesa Pads + Enterprise Partners) */}
+      {/* 6. CAUSE PARTNERSHIPS DISCOVERY BOX (General Enterprise Partnerships) */}
       <section className="py-6 sm:py-10 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-        <div className="rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#DA8688]/45 p-6 sm:p-9 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Palesa Pads Logo Image Up Top on Mobile / Left-Right on Desktop (Matching Practical Programmes Box) */}
-          <div className="lg:col-span-5 order-first lg:order-last">
-            <a
-              href="https://pos.snapscan.io/qr/Kwc3UjHr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group block relative h-52 sm:h-60 rounded-2xl overflow-hidden bg-slate-950 border border-slate-200 dark:border-slate-700 shadow-md flex items-center justify-center p-6"
-              title="Sponsor Palesa Pads via SnapScan"
-            >
-              <img
-                src="/assets/sponsors/palesa-pads-logo.png"
-                alt="Palesa Pads — Washable, reusable sanitary towels"
-                loading="lazy"
-                className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent p-3.5 flex items-center justify-between text-white">
-                <div>
-                  <div className="text-[10px] font-semibold uppercase tracking-wider text-[#DA8688]">
-                    Featured Cause Partner
-                  </div>
-                  <div className="font-serif text-base">Palesa Pads</div>
-                </div>
-                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#DA8688] text-slate-950">
-                  Sponsor via SnapScan →
-                </span>
-              </div>
-            </a>
-          </div>
-
-          <div className="lg:col-span-7 space-y-4">
-            <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#DA8688]/20 text-slate-900 dark:text-[#DA8688]">
-              Cause &amp; Enterprise Partnerships
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
-              Want to See What Our Partners Offer?
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              <strong className="text-slate-900 dark:text-white">Palesa Pads</strong> are high-quality, reusable cloth sanitary pads made in South Africa. They are more comfortable than disposable pads, can be worn for longer with no odour and fewer menstrual cramps due to the absence of chemicals. They are leak-free, easy to wash, and come with a guarantee of 5 years — because her period shouldn&apos;t hold her back.
-            </p>
-            <div className="pt-2 flex flex-wrap items-center gap-3.5">
-              <a
-                href="https://pos.snapscan.io/qr/Kwc3UjHr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold text-slate-950 hover:opacity-90 transition-all shadow-sm"
-                style={{ backgroundColor: '#DA8688' }}
-              >
-                <span>Sponsor Palesa Pads (SnapScan)</span>
-                <span aria-hidden="true">→</span>
-              </a>
+        <div className="rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#DA8688]/45 p-6 sm:p-10 lg:p-12 shadow-sm">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+            <div className="space-y-4 max-w-3xl">
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#DA8688]/20 text-slate-900 dark:text-[#DA8688]">
+                Cause &amp; Enterprise Partnerships
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl text-slate-900 dark:text-white">
+                Want to See What Our Partners Offer?
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                We collaborate with mission-aligned social enterprises, community sports fundraisers like Padel 365, and corporate B-BBEE CSI initiatives to deliver sustainable, measurable outcomes for youth, learners, and communities across KwaZulu-Natal and Gauteng. Discover how our shared-value partnerships create lasting change.
+              </p>
+            </div>
+            <div className="shrink-0">
               <Link
                 href="/partners"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-slate-900 dark:bg-slate-800 text-white hover:opacity-90 transition-all shadow-sm"

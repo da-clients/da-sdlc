@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site.config';
 import { SPONSOR_IN_A_BOX_TIERS, SponsorBoxOption } from '@/data/sdlcData';
 import SponsorTrustBar from '@/components/SponsorTrustBar';
-import NextStepBanner from '@/components/NextStepBanner';
 
 export default function DonatePage() {
   const [copiedField, setCopiedField] = useState<string | null>(null);
@@ -494,16 +493,88 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* 5. PARTNERSHIP / CORPORATE CSI SECTION */}
-      <NextStepBanner
-        stepLabel="Cause Enterprise & Corporate CSI"
-        title="Looking for Corporate CSI or Cause Partnerships?"
-        description="Explore our Palesa Pads school initiative, Padel 365 tournaments, and B-BBEE Socio-Economic Development (SED) school rollouts."
-        primaryHref="/partners"
-        primaryLabel="Explore Partnerships"
-        secondaryHref="/contact"
-        secondaryLabel="Contact Executive Team"
-      />
+      {/* 5. DEDICATED PALESA PADS CAUSE PARTNERSHIP SECTION */}
+      <section id="palesa-pads" className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto scroll-mt-24">
+        <div className="rounded-3xl bg-white dark:bg-slate-900 border-2 border-[#DA8688]/40 dark:border-[#DA8688]/30 p-6 sm:p-10 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Visual Card: Palesa Pads Logo in clean dark container badge */}
+            <div className="lg:col-span-4 flex flex-col items-center sm:items-start text-center sm:text-left">
+              <div className="w-40 h-40 rounded-2xl bg-black p-4 flex items-center justify-center mb-6 shadow-md border border-slate-800 shrink-0">
+                <img
+                  src="/assets/sponsors/palesa-pads-logo.png"
+                  alt="Palesa Pads — Washable, reusable sanitary towels"
+                  className="max-h-full max-w-full object-contain"
+                  loading="lazy"
+                />
+              </div>
+              <span className="inline-block px-3 py-1 rounded-full text-xs font-semibold bg-[#DA8688]/15 text-[#b04f51] dark:text-[#DA8688] mb-2">
+                Social Enterprise Collaboration
+              </span>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-slate-900 dark:text-white">
+                Sponsor a Girl with Pads
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Washable, Reusable Sanitary Towels Lasting 5 Years
+              </p>
+            </div>
+
+            {/* Content & Action CTAs */}
+            <div className="lg:col-span-8 space-y-6">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+                Palesa Pads are high-quality, reusable cloth sanitary pads made in South Africa. They are more comfortable than disposable pads, can be worn for longer with no odour and fewer menstrual cramps due to the absence of chemicals. They are leak-free, easy to wash, and come with a guarantee of 5 years — because her period shouldn&apos;t hold her back.
+              </p>
+
+              {/* Two Impact Highlight Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700">
+                  <span className="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-[#DA8688]">
+                    For the School &amp; Learner
+                  </span>
+                  <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Comfortable, chemical-free protection with a 5-year guarantee so young women never have to miss school days.
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700">
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-[#90D1BB]">
+                    For South African Manufacturing
+                  </span>
+                  <p className="mt-1 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Supports local South African manufacturing and eco-friendly reusable care that reduces disposable waste.
+                  </p>
+                </div>
+              </div>
+
+              {/* Actions: SnapScan Direct Sponsor & Corporate CSI Inquiries */}
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
+                <a
+                  href="https://pos.snapscan.io/qr/Kwc3UjHr"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-[#DA8688] text-slate-950 hover:opacity-90 transition-all shadow-sm"
+                >
+                  <span>Sponsor via SnapScan</span>
+                  <span aria-hidden="true">→</span>
+                </a>
+                <Link
+                  href="/partners"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-semibold bg-slate-900 dark:bg-slate-800 text-white hover:opacity-90 transition-all shadow-sm"
+                >
+                  <span>Explore Corporate CSI</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors"
+                >
+                  <span>Contact Executive Team</span>
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* 6. SPONSORS SECTION (Beneath Partnership Section) */}
       <SponsorTrustBar />
